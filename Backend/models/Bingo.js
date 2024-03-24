@@ -1,31 +1,26 @@
 const mongoose = require('mongoose');
 
 const bingoSchema = new mongoose.Schema({
-    id: {
+    name: {
         type: String,
         required: true
     },
-    association: {
-        type: String,
+    startDate: {
+        type: Date,
         required: true
     },
-    firstPrice: {
-        type: String,
+    endDate: {
+        type: Date,
         required: true
     },
-    donation: {
-        type: String,
+    numberOfTickets: {
+        type: Number,
         required: true
-    },
-    status: {
-        type: String,
-        required: true,
-        enum: ['active', 'inactive', 'pending', 'completed'],
     },
     ticketPrice: {
-        type: String,
+        type: Number,
         required: true
-    },
+    }
 },
     { timestamps: true }
 );
