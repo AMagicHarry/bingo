@@ -4,8 +4,6 @@ const cors = require('cors');
 const errorHandler = require('./middleware/errorHandler');
 const connectDB = require('./db/db');
 
-const stripe = require('stripe')(process.env.SECRET_KEY)
-
 
 const app = express();
 
@@ -34,20 +32,15 @@ app.use(express.json());
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
 const bingoRoutes = require('./routes/bingo')
-const ticketRoutes = require('./ticket/ticke')
+const ticketRoutes = require('./routes/ticket')
+const paymentRoutes = require('./routes/payment')
+
 
 app.use('/api/user', userRoutes);
 app.use('/api/bingo', bingoRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/ticket', ticketRoutes);
-
-
-app.post('/payment', async(req,res)=>{
-  let status, error;
-  const {token,amount} = req.body
-  console.log(token)
-  
-})
+app.use('/api/payment', paymentRoutes)
 
 
 
