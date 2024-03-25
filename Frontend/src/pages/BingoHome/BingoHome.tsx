@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import Timer from "../../components/Timer/Timer"
 import BingoCard from "../../components/BingoCard/BingoCard"
+import WinnerCard from "../../components/WinnerCard/WinnerCard"
+
 import iphone from "../../assets/iphone.png"
 import dollar from "../../assets/dollar.png"
 import painted from "../../assets/painted.png"
@@ -10,6 +12,11 @@ const bingoData: any = [
   { id: 1, prize: '500$', created: 'Oct 8, 2023', gameDay: 'Jan 11, 2024', time: '07:40 am', url: dollar },
   { id: 2, prize: 'Printed Art', created: 'Jul 9, 2024', gameDay: 'Dec 3, 2024', time: 'Finished', url: painted },
   { id: 3, prize: 'Iphone 13', created: 'Nov 7, 2024', gameDay: 'May 16, 2024', time: '02:30 pm', url: iphone },
+]
+const winnerData: any = [
+  { id: 1, date: '29th January', winner: 'James Walt', prize: "Painted art" },
+  { id: 2, date: '2th January', winner: 'Tomson Ewan', prize: "Bicycle" },
+  { id: 3, date: '4th April', winner: 'Justin Hernandez', prize: "Game tickets" },
 ]
 
 const Register = () => {
@@ -59,9 +66,9 @@ const Register = () => {
             <p className="text-[1.8rem] font-bold">Recent Winners</p>
             <div className="flex justify-between">
               {
-                bingoData.map((index: any) => {
+                winnerData.map((index: any) => {
                   return (
-                    <BingoCard key={index.id} price={index.prize} created={index.created} gameDay={index.gameDay} time={index.time} url={index.url}></BingoCard>
+                    <WinnerCard key={index.id} prize={index.prize} date={index.date} winner={index.winner}></WinnerCard>
                   )
                 })
               }
