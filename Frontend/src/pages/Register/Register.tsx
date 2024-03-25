@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Association = () => {
+const Register = () => {
   const [password, setPassword] = useState<number>(0);
 
   const skipPassword = () => {
@@ -43,4 +43,4 @@ const Association = () => {
   );
 };
 
-export default Association;
+export default Register;
