@@ -1,36 +1,22 @@
-import balls from "../../assets/background_ball.png"
+import { Link } from "react-router-dom";
 
 const Association = () => {
-  // const [bingos, setBingos] = useState<Bingo[]>([...bingosDummy.slice(0, 5)]);
-  // const [bingoGroups,_] = useState<BingoGroup[]>([...bingoGroupsDummy]);
-
   return (
     <>
-    <div className="">sss</div>
-    
-     {/* <div className="w-full p-[1rem]">
-      <div className="container px-[8rem]">
-        <h1 className='text-[2rem] mt-[1rem]'>Popular Bingo's</h1>
-        <div className="flex mt-[1rem] gap-[1rem] items-center justify-center flex-wrap">
-          {bingoGroups.map((bingoGroup: BingoGroup) => (
-            <div key={bingoGroup.id} className='relative'>
-              <img  src={BingoGroupImage} alt="" className='relative' />
-              <span className='absolute bg-[#85E8C3] left-[50%] px-[.5rem] py-[.2rem] rounded-md -translate-x-1/2 bottom-[2rem]'>
-                {bingoGroup.category}
-              </span>
-            </div>
-          ))}
+      <div className="flex pt-[1rem]">
+        <div className="w-5/12"></div>
+        <div className="w-7/12 container px-[8rem] text-center mt-20">
+          {/* <p>Welcome!</p>
+          <p>By creating an account, you're joining a community dedicated to making a positive impact through the excitement of Bingo</p>
+          <div className="w-full bg-white  rounded-[24px] max-w-[757px] xl:relative p-[1rem] sm:p-[3rem] xl:pr-[10rem]">
+            <p>Create</p>
+          </div> */}
+          <p className="text-[2.5rem]">Welcome Association/Club!</p>
+          <p className="text-[1.3rem] mt-2">With bingo, make a difference! seize the opportunity to create positive change. Sign up now to host bingo events, manage payments, and support your charitable causes. Join us in making an impact today!</p>
+          <Link to={"/login"} className="block w-full bg-white hover:bg-slate-200 p-3 rounded-lg text-2xl text-[#0047FF] mt-4">Login</Link>
+          <Link to={"/register"} className="block w-full  bg-white hover:bg-slate-200 p-3 rounded-lg text-2xl text-[#0047FF] mt-4">Create account</Link>
         </div>
-        <BingosTable setBingos={setBingos} bingos={bingos}>
-          <div className="flex border-b border-gray-400 pb-[1rem] items-center justify-between">
-            <h1 className='text-[1.3rem] sm:text-[2rem]'>Trending Bingo's</h1>
-            <Link to='/all-bingos' className='text-[15px] sm:text-[25px] hover:underline duration-300 cursor-pointer'>
-              See all Bingos
-            </Link>
-          </div>
-        </BingosTable>
       </div>
-    </div> */}
     </>
   );
 };
