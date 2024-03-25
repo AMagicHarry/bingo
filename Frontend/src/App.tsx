@@ -14,6 +14,7 @@ import Login from './pages/login/login'
 import BingoHome from './pages/BingoHome/BingoHome'
 
 import bgImage from './assets/background_ball.png'
+import ball from './assets/ball.png'
 
 import './App.css';
 
@@ -37,6 +38,18 @@ const App = () => {
     );
   };
 
+  const Layout2 = () => {
+    return (
+      <div className='overflow-y-auto h-full'>
+        <div className='absolute text-center justify-center h-full w-full -z-50 opacity-25'>
+          <img src={ball} alt="Bingo" style={{ width: "70%", height: "100%" }} />
+        </div>
+
+        <Outlet />
+      </div>
+    );
+  };
+
   return (
     <div className='w-full h-screen overflow-hidden font-serif'>
       <Routes>
@@ -51,9 +64,11 @@ const App = () => {
           <Route path="association" element={<Association />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-
         </Route>
-        <Route path='bingohome' element={<BingoHome />}></Route>
+        <Route element={<Layout2 />}>
+          <Route path='bingohome' element={<BingoHome />}></Route>
+        </Route>
+
       </Routes>
     </div>
   );
