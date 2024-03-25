@@ -9,6 +9,7 @@ const getBingos = async (req, res, next) => {
   }
 };
 
+
 const addBingo = async (req, res, next) => {
     const{association,firstPrice ,donation ,status,ticketPrice} = req.body
     if(!association || !firstPrice || !donation || !status || !ticketPrice){

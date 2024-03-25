@@ -3,6 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const errorHandler = require('./middleware/errorHandler');
 const connectDB = require('./db/db');
+const  {generateBingoGrid} = require('./utils/functions')
+
+
+generateBingoGrid()
 
 
 const app = express();
@@ -34,6 +38,7 @@ const authRoutes = require('./routes/auth');
 const bingoRoutes = require('./routes/bingo')
 const ticketRoutes = require('./routes/ticket')
 const paymentRoutes = require('./routes/payment')
+
 
 
 app.use('/api/user', userRoutes);

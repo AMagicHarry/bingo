@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {buyTicket,getTickets,deleteTicket,updateTicket} = require('../controllers/bingo.js');
+const {buyTicket,getTickets,deleteTicket,updateTicket} = require('../controllers/ticket.js');
 const { protect } = require('../middleware/protect.js');
 
 

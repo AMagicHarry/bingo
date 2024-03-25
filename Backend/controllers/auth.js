@@ -5,9 +5,9 @@ const { createAccessToken, createRefreshToken, sendAccessToken, sendRefreshToken
 
 // Register user
 const register = async (req, res, next) => {
-    const { name, email, password, confirmPassword, avatar } = req.body;
+    const { name, email, password, confirmPassword } = req.body;
 
-    if (!name || !email || !password || !confirmPassword || !avatar) {
+    if (!name || !email || !password || !confirmPassword) {
         return next({ message: 'All fields are required' });
     }
 
