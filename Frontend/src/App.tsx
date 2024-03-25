@@ -13,11 +13,13 @@ import Register from './pages/Register/Register'
 import Login from './pages/login/login'
 import BingoHome from './pages/BingoHome/BingoHome'
 import BingoPayment from './pages/BingoPayment/BingoPayment'
+import BingoHistory from './pages/BingoHistory/BingoHistory';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
 
 import './App.css';
+
 
 const App = () => {
   const Layout1 = () => {
@@ -69,8 +71,8 @@ const App = () => {
         <Route element={<Layout2 />}>
           <Route path='bingohome' element={<BingoHome />}></Route>
           <Route path='bingopayment' element={<BingoPayment />}></Route>
+          <Route path='bingohistory' element={<BingoHistory />}></Route>
         </Route>
-
       </Routes>
     </div>
   );
