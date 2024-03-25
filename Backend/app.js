@@ -4,6 +4,8 @@ const cors = require('cors');
 const errorHandler = require('./middleware/errorHandler');
 const connectDB = require('./db/db');
 
+const stripe = require('stripe')(process.env.SECRET_KEY)
+
 
 const app = express();
 
@@ -32,16 +34,28 @@ app.use(express.json());
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
 const bingoRoutes = require('./routes/bingo')
+const ticketRoutes = require('./ticket/ticke')
 
 app.use('/api/user', userRoutes);
 app.use('/api/bingo', bingoRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/ticket', ticketRoutes);
+
+
+app.post('/payment', async(req,res)=>{
+  let status, error;
+  const {token,amount} = req.body
+  console.log(token)
+  
+})
+
 
 
 app.use(errorHandler);
 
 connectDB(process.env.MONGO_URL);
 
-app.listen(port, () => {
+app.listen(port, (error) => {
+  if(error) throw error
   console.log(`Server is running on port ${port}`);
 });
