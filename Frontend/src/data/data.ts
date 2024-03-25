@@ -1,4 +1,4 @@
-import { Bingo, BingoGroup, BingoHistory, Payment } from "../types/types";
+import { Bingo, BingoGroup, BingoHistory, TicketHistory, Payment } from "../types/types";
 
 export const bingos: Bingo[] = [
     {
@@ -271,5 +271,48 @@ export const bingohistorys: BingoHistory[] = [
         price: "30$",
         drawdate: "Finished",
         drawtime: "Finished"
+    }
+]
+
+export const tickethistorys: TicketHistory[] = [
+    {
+        id: "1",
+        createddate: "Jan 11, 2024",
+        createdtime: "11:27 pm",
+        totalTicket: "190",
+        ticketPrize: "15$",
+        totalSold: "144",
+        revenue: "1260$",
+        avaiableTickets: "156"
+    },
+    {
+        id: "2",
+        createddate: "Jan 22, 2024",
+        createdtime: "01:27 pm",
+        totalTicket: "100",
+        ticketPrize: "50$",
+        totalSold: "68",
+        revenue: "3400$",
+        avaiableTickets: "156"
+    },
+    {
+        id: "3",
+        createddate: "Jan 11, 2024",
+        createdtime: "11:27 pm",
+        totalTicket: "200",
+        ticketPrize: "20$",
+        totalSold: "171",
+        revenue: "3420$",
+        avaiableTickets: "156"
+    },
+    {
+        id: "4",
+        createddate: "Mar 28, 2024",
+        createdtime: "07:38 pm",
+        totalTicket: "50",
+        ticketPrize: "30$",
+        totalSold: "50",
+        revenue: "1500$",
+        avaiableTickets: "No"
     }
 ]

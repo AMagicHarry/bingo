@@ -57,11 +57,10 @@ const Pay = () => {
                             <span>$80 USD</span>
                         </div>
 
-                        <Link to={"/pay-success"} className='px-[1rem] text-[15px] w-full text-[#0047FF] rounded-[8px] py-[.8rem] hover:bg-blue-100 cursor-pointer duration-300 bg-white'>
+                        <Link to={"/pay-success"} className='text-center font-bold px-[1rem] text-[15px] w-full text-[#0047FF] rounded-[8px] py-[.8rem] hover:bg-blue-100 cursor-pointer duration-300 bg-white'>
                             Proceed
                         </Link>
                     </div>
-
 
                     <div className='flex items-center justify-between'>
                         <h1 className='text-[20px] font-[500]'>Payment options</h1>

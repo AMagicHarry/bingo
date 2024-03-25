@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import Selected from './pages/Selected/Selected';
 import AllBingos from './pages/AllBingos/AllBingos';
-import Play from './pages/Play/Play';
 import Pay from './pages/Pay/Pay';
 import PaySuccess from './pages/PaySuccess/PaySuccess';
 import NotFound from './pages/NotFound/NotFound'; // Assume you have this component
@@ -14,11 +13,17 @@ import Login from './pages/login/login'
 import BingoHome from './pages/BingoHome/BingoHome'
 import BingoPayment from './pages/BingoPayment/BingoPayment'
 import BingoHistory from './pages/BingoHistory/BingoHistory';
+import TicketHistory from './pages/TicketHistory/TicketHistory';
+import BuyTicket from './pages/BuyTicket/BuyTicket';
+import Play from './pages/Play/Play';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
 
 import './App.css';
+
+
+
 
 
 const App = () => {
@@ -60,9 +65,10 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path="selected" element={<Selected />} />
           <Route path="all-bingos" element={<AllBingos />} />
-          <Route path="play" element={<Play />} />
+          <Route path="buyticket" element={<BuyTicket />} />
           <Route path="pay" element={<Pay />} />
           <Route path="pay-success" element={<PaySuccess />} />
+          <Route path="play" element={<Play />} />
           <Route path="*" element={<NotFound />} />
           <Route path="association" element={<Association />} />
           <Route path="register" element={<Register />} />
@@ -72,6 +78,7 @@ const App = () => {
           <Route path='bingohome' element={<BingoHome />}></Route>
           <Route path='bingopayment' element={<BingoPayment />}></Route>
           <Route path='bingohistory' element={<BingoHistory />}></Route>
+          <Route path='tickethistory' element={<TicketHistory />}></Route>
         </Route>
       </Routes>
     </div>

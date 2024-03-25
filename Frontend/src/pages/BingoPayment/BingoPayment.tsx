@@ -15,7 +15,7 @@ const BingoPayment = () => {
             <Link to={"/bingohome"} className="block text-[1.8rem] cursor-pointer hover:font-bold">Home</Link>
             <Link to={"/bingopayment"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Payment</Link>
             <Link to={"/bingohistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Bingo</Link>
-            <Link to={""} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Statistics</Link>
+            <Link to={"/tickethistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Statistics</Link>
           </div>
         </div>
         <div className="w-9/12">

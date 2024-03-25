@@ -39,3 +39,14 @@ export interface BingoHistory {
     drawdate: string;
     drawtime: string;
 }
+
+export interface TicketHistory {
+    id: string;
+    createddate: string;
+    createdtime: string;
+    totalTicket: string;
+    ticketPrize: string;
+    totalSold: string;
+    revenue: string;
+    avaiableTickets: string;
+}
