@@ -1,4 +1,4 @@
-import { Bingo,BingoGroup } from "../types/types";
+import { Bingo, BingoGroup, Payment } from "../types/types";
 
 export const bingos: Bingo[] = [
     {
@@ -146,39 +146,87 @@ export const bingos: Bingo[] = [
 
 export const bingoGroups: BingoGroup[] = [
     {
-        id:"1",
-        association:'Tennis Club',
-        numberOfTickets:'180',
-        prizes:'500$',
-        ticketPrice:"10$",
-        biggestPrize:"",
-        category:"Association"
+        id: "1",
+        association: 'Tennis Club',
+        numberOfTickets: '180',
+        prizes: '500$',
+        ticketPrice: "10$",
+        biggestPrize: "",
+        category: "Association"
     },
     {
-        id:"2",
-        association:'Tennis Club',
-        numberOfTickets:'180',
-        prizes:'500$',
-        ticketPrice:"10$",
-        biggestPrize:"",
-        category:"Association"
+        id: "2",
+        association: 'Tennis Club',
+        numberOfTickets: '180',
+        prizes: '500$',
+        ticketPrice: "10$",
+        biggestPrize: "",
+        category: "Association"
     },
     {
-        id:"3",
-        association:'Tennis Club',
-        numberOfTickets:'180',
-        prizes:'500$',
-        ticketPrice:"10$",
-        biggestPrize:"",
-        category:"Association"
+        id: "3",
+        association: 'Tennis Club',
+        numberOfTickets: '180',
+        prizes: '500$',
+        ticketPrice: "10$",
+        biggestPrize: "",
+        category: "Association"
     },
     {
-        id:"4",
-        association:'Tennis Club',
-        numberOfTickets:'180',
-        prizes:'500$',
-        ticketPrice:"10$",
-        biggestPrize:"",
-        category:"Association"
+        id: "4",
+        association: 'Tennis Club',
+        numberOfTickets: '180',
+        prizes: '500$',
+        ticketPrice: "10$",
+        biggestPrize: "",
+        category: "Association"
     },
+]
+
+export const ticketPayments: Payment[] = [
+    {
+        id: "1",
+        purchaser: "Jacob Jones",
+        tickets: "6",
+        bought: "193$",
+        transaction: "0x7a9ad74929509384...",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    },
+    {
+        id: "2",
+        purchaser: "Dianne Russell",
+        tickets: "4",
+        bought: "63$",
+        transaction: "0x6c9ad723476409384...",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    },
+    {
+        id: "3",
+        purchaser: "Kathryn Murphy",
+        tickets: "2",
+        bought: "82$",
+        transaction: "0xa3c5744c55643...",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    },
+    {
+        id: "4",
+        purchaser: "Cody Fisher",
+        tickets: "9",
+        bought: "203$",
+        transaction: "0x3d86de74347ce...",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    },
+    {
+        id: "5",
+        purchaser: "Floyd Miles",
+        tickets: "1",
+        bought: "43$",
+        transaction: "0x788a8533ff3...",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    }
 ]

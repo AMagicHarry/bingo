@@ -18,3 +18,13 @@ export interface BingoGroup {
     biggestPrize:string;
     category:string;
 }
+
+export interface Payment {
+    id:string;
+    purchaser:string
+    tickets:string;
+    bought:string;
+    transaction:string;
+    date:string;
+    time:string;
+}

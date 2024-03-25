@@ -1,15 +1,15 @@
 import { Bingo } from "../../types/types";
 import BingoRow from "../BingoRow/BingoRow";
-import { PropsWithChildren} from "react";
+import { PropsWithChildren } from "react";
 import './BingosTables.css'
 
 interface BingosTableProps extends PropsWithChildren {
-  bingos:Bingo[]
-  setBingos:React.Dispatch<React.SetStateAction<Bingo[]>>;
+  bingos: Bingo[]
+  setBingos: React.Dispatch<React.SetStateAction<Bingo[]>>;
 }
 
-const BingosTable:React.FC<BingosTableProps> = ({bingos,children}) => {
-  
+const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
+
 
   return (
     <div className="bingos-table px-[1rem] sm:px-[4rem] py-[2rem]">
@@ -38,8 +38,8 @@ const BingosTable:React.FC<BingosTableProps> = ({bingos,children}) => {
           </tr>
         </thead>
         <tbody className="overflow-x-auto" >
-          {bingos.map((bingo:Bingo) => (
-            <BingoRow key={bingo.id} bingo={bingo}/>
+          {bingos.map((bingo: Bingo) => (
+            <BingoRow key={bingo.id} bingo={bingo} />
           ))}
         </tbody>
       </table>

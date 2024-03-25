@@ -12,6 +12,7 @@ import Association from './pages/Association/Association'
 import Register from './pages/Register/Register'
 import Login from './pages/login/login'
 import BingoHome from './pages/BingoHome/BingoHome'
+import BingoPayment from './pages/BingoPayment/BingoPayment'
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
@@ -67,6 +68,7 @@ const App = () => {
         </Route>
         <Route element={<Layout2 />}>
           <Route path='bingohome' element={<BingoHome />}></Route>
+          <Route path='bingopayment' element={<BingoPayment />}></Route>
         </Route>
 
       </Routes>
