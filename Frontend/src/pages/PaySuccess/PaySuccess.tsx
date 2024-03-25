@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import check from "../../assets/check.png"
 
 const PaySuccess = () => {
@@ -15,10 +16,12 @@ const PaySuccess = () => {
                         <p className='text-[2rem] font-bold'>$80 USD</p>
                         <p className='text-[2rem] mt-8 text-[#00D083]'>Transaction Successful</p>
                         <p className='text-[1rem] mt-4'>Thank you for supporting our club's fundraising efforts!</p>
-                        <p className='text-[1rem] mt-4'>Please check your email for your tickets/grid</p>
+                        <p className='text-[1rem] mt-4 mb-4'>Please check your email for your tickets/grid</p>
+                        <Link to="/myticket" className="text-[1.4rem] bg-[#00d083] p-2 px-8 rounded-lg text-white hover:bg-[#46e4aa]">My Tickets</Link>
                     </div>
                 </div>
             </div>
+            
         </div>
     )
 }

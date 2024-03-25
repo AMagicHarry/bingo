@@ -16,14 +16,14 @@ import BingoHistory from './pages/BingoHistory/BingoHistory';
 import TicketHistory from './pages/TicketHistory/TicketHistory';
 import BuyTicket from './pages/BuyTicket/BuyTicket';
 import Play from './pages/Play/Play';
+import MyTicket from './pages/MyTicket/MyTicket';
+import PlayTicket from './pages/PlayTicket/PlayTicket';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
+import background from "./assets/background.png"
 
 import './App.css';
-
-
-
 
 
 const App = () => {
@@ -31,7 +31,10 @@ const App = () => {
     const location = useLocation();
 
     return (
-      <div className="w-full relative bg-blue-200 h-full overflow-y-auto">
+      <div className='overflow-y-auto h-full'>
+        <div className='absolute text-center justify-center h-full w-full -z-50'>
+          <img src={background} alt="Bingo" style={{ width: "100%", height: "100%" }} />
+        </div>
         {
           (location.pathname === '/association') || (location.pathname === '/register') || (location.pathname === '/login') ?
             <div className='absolute z-50 bg-transparent flex-1 text-center justify-center h-full w-5/12'>
@@ -73,12 +76,15 @@ const App = () => {
           <Route path="association" element={<Association />} />
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
+          <Route path="myticket" element={<MyTicket />} />
+
         </Route>
         <Route element={<Layout2 />}>
           <Route path='bingohome' element={<BingoHome />}></Route>
           <Route path='bingopayment' element={<BingoPayment />}></Route>
           <Route path='bingohistory' element={<BingoHistory />}></Route>
           <Route path='tickethistory' element={<TicketHistory />}></Route>
+          <Route path="playticket" element={<PlayTicket />} />
         </Route>
       </Routes>
     </div>
