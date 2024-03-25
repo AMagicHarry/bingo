@@ -20,7 +20,7 @@ const Login = () => {
             <input className="w-full text-[1.2rem] rounded-lg border-solid border-2 border-gray-200 p-1 px-4 mt-8" placeholder="Enter your email"></input>
             <input className="w-full text-[1.2rem] rounded-lg border-solid border-2 border-gray-200 p-1 px-4 mt-2" placeholder="Password"></input>
             <button className="w-full text-[1.2rem] mt-4 mb-8 bg-[#0047FF] text-white rounded-lg p-2">Continue</button>
-            <span>Already have an account? </span><Link to={"/login"} className="text-[#0047FF] font-bold"> Log in</Link>
+            <span>Don't have an account? </span><Link to={"/register"} className="text-[#0047FF] font-bold"> Signup</Link>
           </div>
         </div>
       </div>
