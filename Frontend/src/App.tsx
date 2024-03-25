@@ -9,6 +9,8 @@ import Pay from './pages/Pay/Pay';
 import PaySuccess from './pages/PaySuccess/PaySuccess';
 import NotFound from './pages/NotFound/NotFound'; // Assume you have this component
 import Association from './pages/Association/Association'
+import Register from './pages/Register/Register'
+
 import bgImage from './assets/background_ball.png'
 
 import './App.css';
@@ -20,7 +22,7 @@ const App = () => {
     return (
       <div className="w-full relative bg-blue-200 h-full overflow-y-auto">
         {
-          location.pathname === '/association' ?
+          (location.pathname === '/association') || (location.pathname === '/register') ?
             <div className='absolute z-50 bg-transparent flex-1 text-center justify-center h-full w-5/12'>
               <img src={bgImage} alt="Bingo" style={{height: "100%"}} />
             </div> : <div></div>
@@ -45,6 +47,7 @@ const App = () => {
           <Route path="pay-success" element={<PaySuccess />} />
           <Route path="*" element={<NotFound />} />
           <Route path="association" element={<Association />} />
+          <Route path="register" element={<Register />} />
         </Route>
       </Routes>
     </div>
