@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className='w-full'>
-      <div className="container px-[8rem] py-[2rem]">
+      <div className="container px-[2rem] sm:px-[2rem] md:px-[8rem] py-[2rem]">
         <div className="flex flex-col lg:flex-row w-full">
           <div className='flex flex-1  sm:flex-md  flex-col gap-[1rem]'>
             <div className='w-full max-w-[330px] relative h-[330px]'>
@@ -122,7 +122,7 @@ const Home = () => {
       </div>
 
       <div className="w-full p-[1rem]">
-        <div className="container px-[8rem]">
+        <div className="container px-[2rem] sm:px-[2rem] md:px-[8rem]">
           <h1 className='text-[2rem] mt-[1rem]'>Popular Bingo's</h1>
           <div className="flex mt-[1rem] gap-[1rem] items-center justify-center flex-wrap">
             {bingoGroups.map((bingoGroup: BingoGroup) => (

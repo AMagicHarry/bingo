@@ -33,7 +33,7 @@ const App = () => {
     const location = useLocation();
 
     return (
-      <div className='overflow-y-auto h-full'>
+      <div className='overflow-y-auto h-full '>
         <div className='absolute text-center justify-center h-full w-full -z-50'>
           <img src={background} alt="Bingo" style={{ width: "100%", height: "100%" }} />
         </div>
@@ -43,7 +43,7 @@ const App = () => {
               <img src={bgImage} alt="Bingo" style={{ height: "100%" }} />
             </div> : <div></div>
         }
-        <div className='sticky container z-[1000] pt-[2rem] px-[8rem] top-0 left-0 w-full py-[1rem]'>
+        <div className='sticky container z-[1000] pt-[2rem] px-[2rem] sm:px-[2rem] md:px-[8rem] top-0 left-0 w-full py-[1rem]'>
           <NavBar />
         </div>
         <Outlet />
