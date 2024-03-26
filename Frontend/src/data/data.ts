@@ -1,4 +1,4 @@
-import { Bingo, BingoGroup, Payment } from "../types/types";
+import { Bingo, BingoGroup, BingoHistory, TicketHistory, Payment } from "../types/types";
 
 export const bingos: Bingo[] = [
     {
@@ -228,5 +228,91 @@ export const ticketPayments: Payment[] = [
         transaction: "0x788a8533ff3...",
         date: "Dec 11, 2024",
         time: "01:09 am"
+    }
+]
+
+export const bingohistorys: BingoHistory[] = [
+    {
+        id: "1",
+        createddate: "Feb 27, 2024",
+        createdtime: "01:55 pm",
+        prize: "Bicycle",
+        target: "3000$",
+        price: "14$",
+        drawdate: "Dec 11, 2024",
+        drawtime: "01:09 am"
+    },
+    {
+        id: "2",
+        createddate: "Oct 28, 2024",
+        createdtime: "11:55 pm",
+        prize: "Iphone 13",
+        target: "10000$",
+        price: "80$",
+        drawdate: "May 14, 2024",
+        drawtime: "05:39 am"
+    },
+    {
+        id: "3",
+        createddate: "Dec 5, 2024",
+        createdtime: "03:48 pm",
+        prize: "Car",
+        target: "50000$",
+        price: "100$",
+        drawdate: "Oct 2, 2024",
+        drawtime: "06:29 am"
+    },
+    {
+        id: "4",
+        createddate: "May 30, 2024",
+        createdtime: "01:35 pm",
+        prize: "Painted Art",
+        target: "7000$",
+        price: "30$",
+        drawdate: "Finished",
+        drawtime: "Finished"
+    }
+]
+
+export const tickethistorys: TicketHistory[] = [
+    {
+        id: "1",
+        createddate: "Jan 11, 2024",
+        createdtime: "11:27 pm",
+        totalTicket: "190",
+        ticketPrize: "15$",
+        totalSold: "144",
+        revenue: "1260$",
+        avaiableTickets: "156"
+    },
+    {
+        id: "2",
+        createddate: "Jan 22, 2024",
+        createdtime: "01:27 pm",
+        totalTicket: "100",
+        ticketPrize: "50$",
+        totalSold: "68",
+        revenue: "3400$",
+        avaiableTickets: "156"
+    },
+    {
+        id: "3",
+        createddate: "Jan 11, 2024",
+        createdtime: "11:27 pm",
+        totalTicket: "200",
+        ticketPrize: "20$",
+        totalSold: "171",
+        revenue: "3420$",
+        avaiableTickets: "156"
+    },
+    {
+        id: "4",
+        createddate: "Mar 28, 2024",
+        createdtime: "07:38 pm",
+        totalTicket: "50",
+        ticketPrize: "30$",
+        totalSold: "50",
+        revenue: "1500$",
+        avaiableTickets: "No"
     }
 ]

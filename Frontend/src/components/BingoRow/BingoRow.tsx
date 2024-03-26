@@ -9,7 +9,7 @@ interface BingoCardProps {
 const BingoRow: React.FC<BingoCardProps> = ({bingo}) => {
   const navigate = useNavigate()
   const handleNavigate = (status:string) =>{
-      if(status === 'Play') navigate('/play')
+      if(status === 'Play') navigate('/buyticket')
       else return
   }
   return (

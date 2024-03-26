@@ -28,3 +28,25 @@ export interface Payment {
     date:string;
     time:string;
 }
+
+export interface BingoHistory {
+    id: string;
+    createddate: string;
+    createdtime: string;
+    prize: string;
+    target: string;
+    price: string;
+    drawdate: string;
+    drawtime: string;
+}
+
+export interface TicketHistory {
+    id: string;
+    createddate: string;
+    createdtime: string;
+    totalTicket: string;
+    ticketPrize: string;
+    totalSold: string;
+    revenue: string;
+    avaiableTickets: string;
+}
