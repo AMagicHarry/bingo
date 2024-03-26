@@ -45,7 +45,8 @@ app.use('/api/user', userRoutes);
 app.use('/api/bingo', bingoRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/ticket', ticketRoutes);
-app.use('/api/payment', paymentRoutes)
+app.use('/api/payment', paymentRoutes);
+
 
 
 

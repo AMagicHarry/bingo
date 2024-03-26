@@ -29,7 +29,7 @@ const sendTicketEmail = async(recipientName, recipientEmail, ticket)=> {
 }
 
 
-const random = new RandomOrg({ apiKey: '3c3dcb0a-da0b-4551-82d1-73ac0be17fa9' });
+const random = new RandomOrg({ apiKey: process.env.GRID });
 
 const generateBingoColumn = async(min, max, n)=> {
   const result = await random.generateIntegers({
