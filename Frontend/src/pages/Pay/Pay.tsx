@@ -10,7 +10,7 @@ const Pay = () => {
 
     return (
         <div className='w-full min-h-full '>
-            <div className="container px-[8rem] py-[2rem] w-full justify-center flex start ">
+            <div className="container-wrapper px-[8rem] py-[2rem] w-full justify-center flex start ">
                 <div className="w-full bg-white  rounded-[24px] max-w-[757px] xl:relative p-[1rem] sm:p-[3rem] xl:pr-[10rem]">
 
                     <div className="flex-1  flex flex-col gap-[1rem] text-white p-[2rem] bg-[#0047FF] rounded-[24px] xl:absolute mb-[3rem] xl:mb:0 right-[-34%] xl:max-w-[375px]">

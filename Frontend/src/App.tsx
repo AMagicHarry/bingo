@@ -18,30 +18,35 @@ import BuyTicket from './pages/BuyTicket/BuyTicket';
 import Play from './pages/Play/Play';
 import MyTicket from './pages/MyTicket/MyTicket';
 import PlayTicket from './pages/PlayTicket/PlayTicket';
+import {FaBars} from 'react-icons/fa'
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
 import background from "./assets/background.png"
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import './App.css';
 
 
 const App = () => {
+   const [active,setActive] = useState<boolean>(false)
+
+   const handleActive = () => setActive(!active)
+
   const Layout1 = () => {
     const location = useLocation();
 
     return (
-      <div className='overflow-y-auto h-full'>
-        <div className='absolute text-center justify-center h-full w-full -z-50'>
-          <img src={background} alt="Bingo" style={{ width: "100%", height: "100%" }} />
-        </div>
+      <div style={{ background: `url(${background})` }} className='overflow-y-auto h-full'>
+        
         {
           (location.pathname === '/association') || (location.pathname === '/register') || (location.pathname === '/login') ?
-            <div className='absolute z-50 bg-transparent flex-1 text-center justify-center h-full w-5/12'>
-              <img src={bgImage} alt="Bingo" style={{ height: "100%" }} />
+            <div className='absolute z-50 hidden lg:block bg-transparent flex-1 text-center justify-center h-full w-5/12'>
+              <img src={bgImage} className='object-cover' alt="Bingo" style={{ height: "100%" }} />
             </div> : <div></div>
         }
-        <div className='sticky container z-[1000] pt-[2rem] px-[8rem] top-0 left-0 w-full py-[1rem]'>
+        <div className='sticky container-wrapper z-[1000] pt-[2rem] px-[1rem]  top-0 left-0 w-full py-[1rem]'>
           <NavBar />
         </div>
         <Outlet />
@@ -51,9 +56,22 @@ const App = () => {
 
   const Layout2 = () => {
     return (
-      <div className='overflow-y-auto h-full'>
+      <div  className='overflow-y-auto h-full'>
         <div className='absolute text-center justify-center h-full w-full -z-50 opacity-25'>
           <img src={ball} alt="Bingo" style={{ width: "70%", height: "100%" }} />
+        </div>
+        <div className="w-full sticky top-0  md:hidden relative">
+          <div onClick={handleActive} className='w-full h-[4rem] flex justify-between items-center bg-gray-800 px-[1rem]'>
+            <FaBars className='text-white text-[1.3rem]'/>
+            <Link onClick={handleActive} to={"/"} className="block text-[1.8rem]  cursor-pointer hover:text-blue-400 text-blue-600 font-bold">Back</Link>
+          </div>
+          <div className={` ${active?"left-[100%]":"left-0"} text-white bg-gray-400 w-full p-[1rem] duration-300 absolute `}>
+            <Link onClick={handleActive} to={"/bingohome"} className="block text-[1.8rem] cursor-pointer hover:font-bold">Home</Link>
+            <Link onClick={handleActive} to={"/bingopayment"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Payment</Link>
+            <Link onClick={handleActive} to={"/bingohistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Bingo</Link>
+            <Link onClick={handleActive} to={"/tickethistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Statistics</Link>
+            
+          </div>
         </div>
 
         <Outlet />

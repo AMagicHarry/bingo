@@ -23,8 +23,8 @@ const BingoHome = () => {
 
   return (
     <>
-      <div className="container px-[8rem] py-[4rem] flex z-50">
-        <div className="w-4/12">
+      <div className="container-wrapper p-[1rem] py-[4rem] flex z-50">
+        <div className="w-[20rem] hidden md:flex">
           <div className="absolute">
             <Link to={"/bingohome"} className="block text-[1.8rem] cursor-pointer hover:font-bold">Home</Link>
             <Link to={"/bingopayment"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Payment</Link>
@@ -33,13 +33,13 @@ const BingoHome = () => {
             <Link to={"/"} className="block text-[1.8rem] mt-10 cursor-pointer hover:text-blue-400 text-blue-600 font-bold">Back</Link>
           </div>
         </div>
-        <div className="w-8/12">
-          <div className="flex">
+        <div className="w-full">
+          <div className="flex  w-full flex-col md:flex-row items-center  ">
             <div className="w-7/12">
               <p className="text-[2rem] font-bold">Boxing Club</p>
               <p className="text-[1.5rem] mt-4">Lorem ipsum dolor sit amet consectetur. At risus</p>
             </div>
-            <div className="w-5/12">
+            <div className="max-w-5/12">
               <Timer></Timer>
             </div>
           </div>

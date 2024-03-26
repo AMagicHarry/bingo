@@ -8,13 +8,13 @@ import ball4 from "../../assets/ball/Frame 493.png"
 const MyTicket = () => {
 
     return (
-        <div className='w-full min-h-full mt-16'>
-            <div className="container px-[8rem] mt-8">
-                <div className="flex">
-                    <div className="w-4/12 text-center">
-                        <img src={ballTable}></img>
+        <div className='w-full min-h-full r mt-16'>
+            <div className="container-wrapper relative p-[1rem] mt-8">
+                <div className="flex flex-col items-center justify-center sm:flex-row">
+                    <div className="w-full mt-[2rem] sm:mt-0 max-w-4/12 text-center">
+                        <img className="w-full" src={ballTable}></img>
                     </div>
-                    <div className="w-4/12 text-center mt-8">
+                    <div className="w-full max-w-4/12 text-center mt-8">
                         <p>24/03/2024</p>
                         <p className="text-[2rem]">Basketball Club</p>
                         <div>
@@ -22,8 +22,8 @@ const MyTicket = () => {
                         </div>
                         <p>10 BALLS LEFT</p>
                     </div>
-                    <div className="w-4/12">
-                        <Link to="/" className="text-[1.4rem] float-right text-blue-500">Go Home</Link>
+                    <div className="w-full max-w-4/12">
+                        <Link  to="/" className="text-[1.4rem] top-0 left-[50%] -translate-x-[50%] sm:-translate-x-[-50%] sm:top-[2rem]  absolute sm:right-0   text-blue-500">Go Home</Link>
                         <p className="text-[1.5rem] text-center mt-[5rem]">Winners</p>
                         <div className="relative bg-[#271239] text-white p-2 border-2 rounded-xl h-[20rem] border-[#DE9C4D] mt-4">
                             <div className="border-2 rounded-lg p-1 border-[#DE9C4D]">Lot1: Paul P.</div>

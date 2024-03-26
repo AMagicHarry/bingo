@@ -41,10 +41,10 @@ const Home = () => {
 
   return (
     <div className='w-full'>
-      <div className="container px-[8rem] py-[2rem]">
-        <div className="flex flex-col lg:flex-row w-full">
-          <div className='flex flex-1  sm:flex-md  flex-col gap-[1rem]'>
-            <div className='w-full max-w-[330px] relative h-[330px]'>
+      <div className="container-wrapper p-[1rem]  py-[2rem]">
+        <div className="flex flex-col  lg:flex-row w-full">
+          <div className='flex flex-1 items-center  lg:items-start   flex-col gap-[1rem]'>
+            <div className='w-full max-w-[330px]  relative h-[330px]'>
               <img src={Rectangle7} className='w-full object-cover h-full' alt="" />
               <div className='absolute text-center text-white font-[600] top-0 flex flex-col items-center justify-center gap-[.7rem] left-0 right-0 bottom-0'>
                 <h1 className='text-[25px] p-1'>Latest Jackpot Winner</h1>
@@ -122,7 +122,7 @@ const Home = () => {
       </div>
 
       <div className="w-full p-[1rem]">
-        <div className="container px-[8rem]">
+        <div className="container-wrapper px-[8rem]">
           <h1 className='text-[2rem] mt-[1rem]'>Popular Bingo's</h1>
           <div className="flex mt-[1rem] gap-[1rem] items-center justify-center flex-wrap">
             {bingoGroups.map((bingoGroup: BingoGroup) => (

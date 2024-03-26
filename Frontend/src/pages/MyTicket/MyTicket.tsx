@@ -10,9 +10,9 @@ const MyTicket = () => {
 
     return (
         <div className='w-full min-h-full '>
-            <div className="container px-[8rem] mt-8">
+            <div className="container-wrapper p-[1rem] mt-8">
                 <p className='text-[2rem]'>Your Tickets</p>
-                <div className='flex justify-between mt-8'>
+                <div className='flex flex-col sm:flex-row  items-center justify-center gap-[1rem] justify-between mt-8'>
                 <Link to="/playticket"><img src={ticket1} className="cursor-pointer"></img></Link>
                     <Link to="/playticket"><img src={ticket2} className="cursor-pointer"></img></Link>
                     <Link to="/playticket"><img src={ticket3} className="cursor-pointer"></img></Link>

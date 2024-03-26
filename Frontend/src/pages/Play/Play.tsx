@@ -5,7 +5,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi';
 const Play = () => {
   return (
     <div className="w-full min-h-full">
-      <div className="container flex items-start justify-center p-[1rem]">
+      <div className="container-wrapper flex items-start justify-center p-[1rem]">
         <div className="play-card">
 
           <div className='text-[15px] sm:text-[20px] text-center mt-10'>
@@ -24,7 +24,7 @@ const Play = () => {
             </div>
             <BiRightArrowAlt className='text-[3rem] text-[#006A10] cursor-pointer' />
           </div>
-          <div className='text-center mt-4 mb-6'>
+          <div className='text-center flex flex-col gap-[1rem] sm:flex-row items-center justify-center mt-4 mb-6'>
             <Link to="/buyticket" className='bg-gradient-to-r from-[#006A10] to-[#00D01F] via-green-600 text-[1.2rem] text-white rounded-md p-2 mr-2'><span className='py-1 px-[4rem] border-dotted border-2 border-[#DE9C4D] rounded-md'>Play Now</span></Link>
             <Link to="/myticket" className='bg-gradient-to-r from-[#f1ee4f] to-[#f5d938] via-yellow-600 text-[1.2rem] text-white rounded-md p-2'><span className='py-1 px-[4rem] border-dotted border-2 border-[#DE9C4D] rounded-md'>My Tickets</span></Link>
           </div>

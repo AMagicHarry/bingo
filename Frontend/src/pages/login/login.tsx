@@ -9,7 +9,7 @@ const Login = () => {
     <>
       <div className="flex pt-[1rem]">
         <div className="w-5/12"></div>
-        <div className="w-7/12 container px-[10rem] text-center mt-2">
+        <div className="w-7/12 container-wrapper px-[10rem] text-center mt-2">
           {/* <p className="text-[2rem]">Welcome!</p> */}
           {/* <p className="text-[1.2rem] mt-2">By creating an account, you're joining a community dedicated to making a positive impact through the excitement of Bingo</p> */}
 

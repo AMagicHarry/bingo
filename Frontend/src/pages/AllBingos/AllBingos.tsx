@@ -10,7 +10,7 @@ const AllBingos = () => {
 
     return (
         <div className='w-full min-h-full '>
-            <div className="container px-[8rem] py-[1rem]">
+            <div className="container-wrapper px-[8rem] py-[1rem]">
                 <BingosTable bingos={bingos} setBingos={setBingos} >
                     <div className=" flex text-base justify-between gap-[1rem] border-b border-gray-400 pb-[1rem] items-center ">
                         <h1 className='text-[2rem] mt-[2rem]'>Bingo's</h1>
