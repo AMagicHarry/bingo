@@ -19,6 +19,7 @@ import Play from './pages/Play/Play';
 import MyTicket from './pages/MyTicket/MyTicket';
 import PlayTicket from './pages/PlayTicket/PlayTicket';
 import {FaBars} from 'react-icons/fa'
+import PlayerLogin from './pages/PlayerLogin/PlayerLogin';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
@@ -27,6 +28,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import './App.css';
+
 
 
 const App = () => {
@@ -95,6 +97,7 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="myticket" element={<MyTicket />} />
+          <Route path="playerlogin" element={<PlayerLogin />} />
 
         </Route>
         <Route element={<Layout2 />}>

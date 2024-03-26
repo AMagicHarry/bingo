@@ -49,9 +49,10 @@ const Play = () => {
                 placeholder='Email'
                 type="email"
               />
-              <textarea
-                className='p-[1rem] focus:ring-2 focus:ring-blue-500 min-h-[94px] border-[#D0D5DD] rounded-md border outline-none'
-                placeholder='Comment(OPT)'
+              <input
+                className='px-[1rem] focus:ring-2 focus:ring-blue-500 border-[#D0D5DD] rounded-md py-[.5rem] border outline-none'
+                placeholder='Phone Number (Optional)'
+                type="text"
               />
 
               <div className='flex flex-col sm:flex-row gap-[1rem] font-[600] items-center justify-between'>

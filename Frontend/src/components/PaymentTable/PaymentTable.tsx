@@ -15,6 +15,9 @@ const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
         <thead className="text-lg border-b border-gray-400">
           <tr>
             <th scope="col" className="py-4  font-[500] ">
+              Ticket
+            </th>
+            <th scope="col" className="py-4 hidden sm:table-cell font-[400] ">
               Purchaser
             </th>
             <th scope="col" className="py-4 hidden sm:table-cell font-[400] ">
@@ -31,14 +34,15 @@ const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
         <tbody className="overflow-x-auto" >
           {bingos.map((bingo: Payment) => (
             <tr className="relative border-gray-400 border-b" key={bingo.id}>
-              <td className="pt-9 text-[20px] pb-1 sm:text-[24px] hidden sm:table-cell">{bingo.purchaser}</td>
+              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] hidden sm:table-cell">{bingo.ticketName}</td>
+              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] hidden sm:table-cell">{bingo.purchaser}</td>
               <td className="pt-9 flex flex-col  pb-1">
-                <span className='text-[20px] sm:text-[24px] '>{bingo.tickets}</span>
+                <span className='text-[20px] sm:text-[22px] '>{bingo.tickets}</span>
                 <span className='text-[16px] mt-[.5rem]'>{bingo.bought}</span>
               </td>
-              <td className="pt-9 text-[20px] pb-1 sm:text-[24px] word-break-word hidden sm:table-cell">{bingo.transaction}</td>
+              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] word-break-word hidden sm:table-cell">{bingo.transaction}</td>
               <td className="pt-9 flex flex-col  pb-1">
-                <span className='text-[20px] sm:text-[24px] '>{bingo.date}</span>
+                <span className='text-[20px] sm:text-[22px] '>{bingo.date}</span>
                 <span className='text-[16px] mt-[.5rem]'>{bingo.time}</span>
               </td>
             </tr>
