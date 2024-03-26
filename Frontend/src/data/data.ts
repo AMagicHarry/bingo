@@ -186,6 +186,7 @@ export const bingoGroups: BingoGroup[] = [
 export const ticketPayments: Payment[] = [
     {
         id: "1",
+        ticketName: "Tennis Gruop",
         purchaser: "Jacob Jones",
         tickets: "6",
         bought: "193$",
@@ -195,6 +196,7 @@ export const ticketPayments: Payment[] = [
     },
     {
         id: "2",
+        ticketName: "Tennis Gruop",
         purchaser: "Dianne Russell",
         tickets: "4",
         bought: "63$",
@@ -204,6 +206,7 @@ export const ticketPayments: Payment[] = [
     },
     {
         id: "3",
+        ticketName: "Tennis Gruop",
         purchaser: "Kathryn Murphy",
         tickets: "2",
         bought: "82$",
@@ -213,6 +216,7 @@ export const ticketPayments: Payment[] = [
     },
     {
         id: "4",
+        ticketName: "Volleyball Club",
         purchaser: "Cody Fisher",
         tickets: "9",
         bought: "203$",
@@ -222,6 +226,7 @@ export const ticketPayments: Payment[] = [
     },
     {
         id: "5",
+        ticketName: "Volleyball Club",
         purchaser: "Floyd Miles",
         tickets: "1",
         bought: "43$",

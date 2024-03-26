@@ -21,7 +21,8 @@ export interface BingoGroup {
 
 export interface Payment {
     id:string;
-    purchaser:string
+    ticketName: string;
+    purchaser:string;
     tickets:string;
     bought:string;
     transaction:string;

@@ -18,12 +18,14 @@ import BuyTicket from './pages/BuyTicket/BuyTicket';
 import Play from './pages/Play/Play';
 import MyTicket from './pages/MyTicket/MyTicket';
 import PlayTicket from './pages/PlayTicket/PlayTicket';
+import PlayerLogin from './pages/PlayerLogin/PlayerLogin';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
 import background from "./assets/background.png"
 
 import './App.css';
+
 
 
 const App = () => {
@@ -77,6 +79,7 @@ const App = () => {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="myticket" element={<MyTicket />} />
+          <Route path="playerlogin" element={<PlayerLogin />} />
 
         </Route>
         <Route element={<Layout2 />}>
