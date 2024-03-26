@@ -6,10 +6,10 @@ const PaySuccess = () => {
     return (
         <div className='w-full min-h-full '>
             <div className="container-wrapper p-[1rem] py-[2rem] w-full justify-center flex start ">
-                <div className="w-full bg-white  rounded-[24px] max-w-[757px] xl:relative p-[1rem] pt-[2rem] pb-[4rem]">
+                <div className="w-full bg-white max-w-[30rem]  rounded-[24px] max-w-[757px] xl:relative p-[1rem] pt-[2rem] pb-[4rem]">
                     <div className='text-center'>
                         <div>
-                            <div className='w-full max-w-[20rem] mx-auto'>
+                            <div className='w-full max-w-[10rem] mx-auto'>
                                 <img className='w-full h-full' src={check} alt="" />
                             </div>
                         </div>
