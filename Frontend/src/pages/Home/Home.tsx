@@ -41,7 +41,7 @@ const Home = () => {
 
   return (
     <div className='w-full'>
-      <div className="container px-[1rem] md:px-[8rem]    py-[2rem]">
+      <div className="container  px-[8rem]    py-[2rem]">
         <div className="flex flex-col  lg:flex-row w-full">
           <div className='flex flex-1 items-center  lg:items-start   flex-col gap-[1rem]'>
             <div className='w-full max-w-[330px]  relative h-[330px]'>
