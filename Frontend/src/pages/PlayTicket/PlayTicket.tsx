@@ -9,7 +9,7 @@ const MyTicket = () => {
 
     return (
         <div className='w-full min-h-full r mt-16'>
-            <div className="container-wrapper relative p-[1rem] mt-8">
+            <div className="container md:px-[8rem]  relative p-[1rem] mt-8">
                 <div className="flex flex-col items-center justify-center sm:flex-row">
                     <div className="w-full mt-[2rem] sm:mt-0 max-w-4/12 text-center">
                         <img className="w-full" src={ballTable}></img>

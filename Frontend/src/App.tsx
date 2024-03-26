@@ -48,7 +48,7 @@ const App = () => {
               <img src={bgImage} className='object-cover' alt="Bingo" style={{ height: "100%" }} />
             </div> : <div></div>
         }
-        <div className='sticky container-wrapper z-[1000] pt-[2rem] px-[1rem]  top-0 left-0 w-full py-[1rem]'>
+        <div className='sticky container md:px-[8rem] z-[1000] pt-[2rem] px-[1rem]  top-0 left-0 w-full py-[1rem]'>
           <NavBar />
         </div>
         <Outlet />
@@ -67,7 +67,7 @@ const App = () => {
             <FaBars className='text-white text-[1.3rem]'/>
             <Link onClick={handleActive} to={"/"} className="block text-[1.8rem]  cursor-pointer hover:text-blue-400 text-blue-600 font-bold">Back</Link>
           </div>
-          <div className={` ${active?"left-[100%]":"left-0"} text-white bg-gray-400 w-full p-[1rem] duration-300 absolute `}>
+          <div className={` ${active?"left-0":"left-[100%]"} text-white bg-gray-400 w-full p-[1rem] duration-300 absolute `}>
             <Link onClick={handleActive} to={"/bingohome"} className="block text-[1.8rem] cursor-pointer hover:font-bold">Home</Link>
             <Link onClick={handleActive} to={"/bingopayment"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Payment</Link>
             <Link onClick={handleActive} to={"/bingohistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Bingo</Link>

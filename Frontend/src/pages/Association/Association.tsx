@@ -5,7 +5,7 @@ const Association = () => {
     <>
       <div className="flex pt-[1rem]">
         <div className="w-5/12 hidden lg:block"></div>
-        <div className="w-full sm:w-7/12 container-wrapper px-[2rem]   text-center mt-[5rem]">
+        <div className="w-full lg:w-7/12 container md:px-[8rem] px-[2rem]   text-center mt-[5rem]">
           {/* <p>Welcome!</p>
           <p>By creating an account, you're joining a community dedicated to making a positive impact through the excitement of Bingo</p>
           <div className="w-full bg-white  rounded-[24px] max-w-[757px] xl:relative p-[1rem] sm:p-[3rem] xl:pr-[10rem]">

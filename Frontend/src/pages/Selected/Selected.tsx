@@ -13,7 +13,7 @@ const Selected = () => {
   return (
     <>
       <div className="w-full p-[1rem]">
-        <div className="container-wrapper px-[8rem]">
+        <div className="container md:px-[8rem] ">
           <h1 className='text-[2rem] mt-[1rem]'>Popular Bingo's</h1>
           <div className="flex mt-[1rem] gap-[1rem] items-center justify-center flex-wrap">
             {bingoGroups.map((bingoGroup: BingoGroup) => (

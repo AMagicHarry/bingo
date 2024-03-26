@@ -19,7 +19,7 @@ const Play = () => {
 
   return (
     <div className="w-full min-h-full">
-      <div className="container-wrapper flex items-start justify-center p-[1rem]">
+      <div className="container md:px-[8rem]  flex items-start justify-center p-[1rem]">
         <div className="play-card">
 
           <div className='text-[15px] sm:text-[20px] text-center mt-10'>

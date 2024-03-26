@@ -23,9 +23,9 @@ const BingoHome = () => {
 
   return (
     <>
-      <div className="container-wrapper p-[1rem] py-[4rem] flex z-50">
-        <div className="w-[20rem] hidden md:flex">
-          <div className="absolute">
+      <div className="flex p-[1rem]  py-[4rem] relative flex z-50">
+        <div className="w-[20rem]  flex-none hidden md:flex">
+          <div className="">
             <Link to={"/bingohome"} className="block text-[1.8rem] cursor-pointer hover:font-bold">Home</Link>
             <Link to={"/bingopayment"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Payment</Link>
             <Link to={"/bingohistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Bingo</Link>
@@ -33,8 +33,8 @@ const BingoHome = () => {
             <Link to={"/"} className="block text-[1.8rem] mt-10 cursor-pointer hover:text-blue-400 text-blue-600 font-bold">Back</Link>
           </div>
         </div>
-        <div className="w-full">
-          <div className="flex  w-full flex-col md:flex-row items-center  ">
+        <div className="w-full flex-1 overflow-hidden">
+          <div className="flex  w-full flex-col lg:flex-row items-center  ">
             <div className="w-7/12">
               <p className="text-[2rem] font-bold">Boxing Club</p>
               <p className="text-[1.5rem] mt-4">Lorem ipsum dolor sit amet consectetur. At risus</p>
@@ -43,18 +43,18 @@ const BingoHome = () => {
               <Timer></Timer>
             </div>
           </div>
-          <div className="flex mt-4">
-            <div className="w-7/12">
-              <div className="text-[1.5rem] rounded-lg border-2 border-[#0047FF] py-2 w-60 text-center">Verified</div>
+          <div className="flex flex-col  lg:flex-row items-center justify-center gap-[1rem] mt-4">
+            <div className="w-full max-w-7/12">
+              <div className="text-[1.5rem] w-full rounded-lg border-2 border-[#0047FF] py-2 w-60 text-center">Verified</div>
             </div>
-            <div className="w-5/12">
+            <div className="w-full max-w-5/12">
               <button className="text-[1.5rem] rounded-lg border-2 border-[#6A6A6A] bg-[#1A976A] py-2 text-white text-center w-full">Create new Bingo</button>
             </div>
           </div>
           <hr className="h-[0.1rem] bg-slate-800 my-10" />
           <div>
             <p className="text-[1.8rem] font-bold">Recent Bingo's</p>
-            <div className="flex justify-between">
+            <div className="flex flex-col items-center justify-center lg:justify-start lg:flex-row gap-[1rem]">
               {
                 bingoData.map((index: any) => {
                   return (
@@ -66,7 +66,7 @@ const BingoHome = () => {
           </div>
           <div className="mt-4">
             <p className="text-[1.8rem] font-bold">Recent Winners</p>
-            <div className="flex justify-between">
+            <div className="flex flex-col items-center gap-[1rem] lg:justify-start lg:flex-row justify-center">
               {
                 winnerData.map((index: any) => {
                   return (
