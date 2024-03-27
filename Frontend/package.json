@@ -10,19 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@google-pay/button-react": "^3.0.10",
-    "@stripe/react-stripe-js": "^2.6.2",
-    "@stripe/stripe-js": "^3.0.10",
-    "axios": "^1.6.8",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@types/react-notifications-component": "^3.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.3",
-    "react-stripe-checkout": "^2.6.3"
+    "react-modal": "^3.16.1",
+    "react-notifications": "^1.7.4",
+    "react-router-dom": "^6.22.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
+    "@types/react-modal": "^3.16.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

@@ -12,6 +12,7 @@ import Register from './pages/Register/Register'
 import Login from './pages/login/login'
 import BingoHome from './pages/BingoHome/BingoHome'
 import BingoPayment from './pages/BingoPayment/BingoPayment'
+import PlayerRecord from './pages/PlayerRecord/PlayerRecord'
 import BingoHistory from './pages/BingoHistory/BingoHistory';
 import TicketHistory from './pages/TicketHistory/TicketHistory';
 import BuyTicket from './pages/BuyTicket/BuyTicket';
@@ -20,6 +21,7 @@ import MyTicket from './pages/MyTicket/MyTicket';
 import PlayTicket from './pages/PlayTicket/PlayTicket';
 import {FaBars} from 'react-icons/fa'
 import PlayerLogin from './pages/PlayerLogin/PlayerLogin';
+import Tickets from './pages/Tickets/Tickets';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
@@ -28,8 +30,6 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 import './App.css';
-
-
 
 const App = () => {
    const [active,setActive] = useState<boolean>(false)
@@ -40,15 +40,17 @@ const App = () => {
     const location = useLocation();
 
     return (
-      <div style={{ background: `url(${background})` }} className='overflow-y-auto h-full'>
-        
+      <div className='overflow-y-auto h-full '>
+        <div className='absolute text-center justify-center h-full w-full -z-50'>
+          <img src={background} alt="Bingo" style={{ width: "100%", height: "100%" }} />
+        </div>
         {
           (location.pathname === '/association') || (location.pathname === '/register') || (location.pathname === '/login') ?
             <div className='absolute z-50 hidden lg:block bg-transparent flex-1 text-center justify-center h-full w-5/12'>
               <img src={bgImage} className='object-cover' alt="Bingo" style={{ height: "100%" }} />
             </div> : <div></div>
         }
-        <div className='sticky container md:px-[8rem] z-[1000] pt-[2rem] px-[1rem]  top-0 left-0 w-full py-[1rem]'>
+        <div className='sticky container z-[1000] pt-[2rem] px-[2rem] sm:px-[2rem] md:px-[8rem] top-0 left-0 w-full py-[1rem]'>
           <NavBar />
         </div>
         <Outlet />
@@ -103,9 +105,11 @@ const App = () => {
         <Route element={<Layout2 />}>
           <Route path='bingohome' element={<BingoHome />}></Route>
           <Route path='bingopayment' element={<BingoPayment />}></Route>
+          <Route path='playerrecord' element={<PlayerRecord />}></Route>
           <Route path='bingohistory' element={<BingoHistory />}></Route>
           <Route path='tickethistory' element={<TicketHistory />}></Route>
           <Route path="playticket" element={<PlayTicket />} />
+          <Route path="tickets" element={<Tickets />} />
         </Route>
       </Routes>
     </div>

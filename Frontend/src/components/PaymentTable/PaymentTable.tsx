@@ -1,6 +1,7 @@
 import { Payment } from "../../types/types";
 import { PropsWithChildren } from "react";
 import './BingosTables.css'
+import { Link } from "react-router-dom";
 
 interface BingosTableProps extends PropsWithChildren {
   bingos: Payment[]
@@ -34,8 +35,8 @@ const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
         <tbody className="overflow-x-auto" >
           {bingos.map((bingo: Payment) => (
             <tr className="relative border-gray-400 border-b" key={bingo.id}>
-              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] hidden sm:table-cell">{bingo.ticketName}</td>
-              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] hidden sm:table-cell">{bingo.purchaser}</td>
+              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] hidden sm:table-cell ">{bingo.ticketName}</td>
+              <td className="pt-9 text-[20px] pb-1 sm:text-[22px] hidden sm:table-cell cursor-pointer hover:text-blue-800"><Link to="/playerrecord">{bingo.purchaser}</Link></td>
               <td className="pt-9 flex flex-col  pb-1">
                 <span className='text-[20px] sm:text-[22px] '>{bingo.tickets}</span>
                 <span className='text-[16px] mt-[.5rem]'>{bingo.bought}</span>

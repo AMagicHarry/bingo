@@ -23,9 +23,10 @@ const BingoHome = () => {
 
   return (
     <>
-      <div className="flex p-[1rem]  py-[4rem] relative flex z-50">
-        <div className="w-[20rem]  flex-none hidden md:flex">
-          <div className="">
+      <div className="container px-[8rem] py-[4rem] flex z-50">
+        <div className="w-4/12">
+          <div className="absolute">
+          
             <Link to={"/bingohome"} className="block text-[1.8rem] cursor-pointer hover:font-bold">Home</Link>
             <Link to={"/bingopayment"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Payment</Link>
             <Link to={"/bingohistory"} className="block text-[1.8rem] mt-4 cursor-pointer hover:font-bold">Bingo</Link>

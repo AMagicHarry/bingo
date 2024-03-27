@@ -1,9 +1,3 @@
-import Visa from '../../assets/visa.svg'
-import MasterCard from '../../assets/master-card.svg'
-import Gb from '../../assets/gb.svg'
-import Gpay from '../../assets/gpay.svg'
-import Stripe from '../../assets/logos_stripe.svg'
-import { BsFillLockFill } from "react-icons/bs";
 import { Link } from 'react-router-dom'
 
 const Pay = () => {
