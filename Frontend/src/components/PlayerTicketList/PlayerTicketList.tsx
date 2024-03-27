@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PlayerTicket } from "../../types/types";
 import { PropsWithChildren } from "react";
 
@@ -30,7 +31,7 @@ const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
         <tbody className="overflow-x-auto" >
           {bingos.map((bingo: PlayerTicket) => (
             <tr className="relative border-gray-400 border-b " key={bingo.id}>
-              <td className="pt-9 text-[20px] pb-1 sm:text-[24px] hidden sm:table-cell">{bingo.ticketName}</td>
+              <td className="pt-9 text-[20px] pb-1 sm:text-[24px] hidden sm:table-cell cursor-pointer hover:text-blue-800"><Link to="/tickets">{bingo.ticketName}</Link></td>
               <td className="pt-9 text-[20px] pb-1 sm:text-[24px] hidden sm:table-cell">{bingo.tickets}</td>
               <td className="pt-9 text-[20px] pb-1 sm:text-[24px] hidden sm:table-cell">{bingo.price}</td>
               <td className="pt-9 flex flex-col  pb-1">

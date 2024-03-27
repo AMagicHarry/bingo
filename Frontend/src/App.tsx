@@ -20,6 +20,7 @@ import Play from './pages/Play/Play';
 import MyTicket from './pages/MyTicket/MyTicket';
 import PlayTicket from './pages/PlayTicket/PlayTicket';
 import PlayerLogin from './pages/PlayerLogin/PlayerLogin';
+import Tickets from './pages/Tickets/Tickets';
 
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
@@ -88,6 +89,7 @@ const App = () => {
           <Route path='bingohistory' element={<BingoHistory />}></Route>
           <Route path='tickethistory' element={<TicketHistory />}></Route>
           <Route path="playticket" element={<PlayTicket />} />
+          <Route path="tickets" element={<Tickets />} />
         </Route>
       </Routes>
     </div>
