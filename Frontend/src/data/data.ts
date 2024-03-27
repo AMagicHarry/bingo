@@ -1,4 +1,4 @@
-import { Bingo, BingoGroup, BingoHistory, TicketHistory, Payment } from "../types/types";
+import { Bingo, BingoGroup, BingoHistory, TicketHistory, Payment, PlayerTicket } from "../types/types";
 
 export const bingos: Bingo[] = [
     {
@@ -18,7 +18,7 @@ export const bingos: Bingo[] = [
         association: 'Tennis club',
         donation: "9000",
         firstPrice: "Car",
-        status: 'Finished',
+        status: 'Starting',
         ticketPrice: "20"
     },
     {
@@ -68,7 +68,7 @@ export const bingos: Bingo[] = [
         association: 'Music Club',
         donation: "7500",
         firstPrice: "Concert Tickets",
-        status: 'Play',
+        status: 'Starting',
         ticketPrice: "30"
     },
     {
@@ -143,6 +143,32 @@ export const bingos: Bingo[] = [
     }
 ];
 
+export const playertickets: PlayerTicket[] = [
+    {
+        id: "1",
+        ticketName: "Tenis Group",
+        tickets: "3",
+        price: "193$",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    },
+    {
+        id: "2",
+        ticketName: "Volleyball Club",
+        tickets: "2",
+        price: "15$",
+        date: "Dec 11, 2024",
+        time: "01:09 am"
+    },
+    {
+        id: "3",
+        ticketName: "Football Club",
+        tickets: "5",
+        price: "105$",
+        date: "Feb 1, 2024",
+        time: "01:09 am"
+    }
+]
 
 export const bingoGroups: BingoGroup[] = [
     {

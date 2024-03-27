@@ -12,6 +12,7 @@ import Register from './pages/Register/Register'
 import Login from './pages/login/login'
 import BingoHome from './pages/BingoHome/BingoHome'
 import BingoPayment from './pages/BingoPayment/BingoPayment'
+import PlayerRecord from './pages/PlayerRecord/PlayerRecord'
 import BingoHistory from './pages/BingoHistory/BingoHistory';
 import TicketHistory from './pages/TicketHistory/TicketHistory';
 import BuyTicket from './pages/BuyTicket/BuyTicket';
@@ -25,8 +26,6 @@ import ball from './assets/ball.png'
 import background from "./assets/background.png"
 
 import './App.css';
-
-
 
 const App = () => {
   const Layout1 = () => {
@@ -85,6 +84,7 @@ const App = () => {
         <Route element={<Layout2 />}>
           <Route path='bingohome' element={<BingoHome />}></Route>
           <Route path='bingopayment' element={<BingoPayment />}></Route>
+          <Route path='playerrecord' element={<PlayerRecord />}></Route>
           <Route path='bingohistory' element={<BingoHistory />}></Route>
           <Route path='tickethistory' element={<TicketHistory />}></Route>
           <Route path="playticket" element={<PlayTicket />} />

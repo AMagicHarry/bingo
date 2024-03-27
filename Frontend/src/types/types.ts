@@ -1,33 +1,33 @@
 export interface Bingo {
-    id:string,
-    date:string;
-    time:string;
-    association:string;
-    firstPrice:string;
-    donation:string;
-    status:string;
-    ticketPrice:string;
+    id: string,
+    date: string;
+    time: string;
+    association: string;
+    firstPrice: string;
+    donation: string;
+    status: string;
+    ticketPrice: string;
 }
 
 export interface BingoGroup {
-    id:string;
-    association:string
-    numberOfTickets:string;
-    ticketPrice:string;
-    prizes:string;
-    biggestPrize:string;
-    category:string;
+    id: string;
+    association: string
+    numberOfTickets: string;
+    ticketPrice: string;
+    prizes: string;
+    biggestPrize: string;
+    category: string;
 }
 
 export interface Payment {
-    id:string;
+    id: string;
     ticketName: string;
-    purchaser:string;
-    tickets:string;
-    bought:string;
-    transaction:string;
-    date:string;
-    time:string;
+    purchaser: string;
+    tickets: string;
+    bought: string;
+    transaction: string;
+    date: string;
+    time: string;
 }
 
 export interface BingoHistory {
@@ -50,4 +50,13 @@ export interface TicketHistory {
     totalSold: string;
     revenue: string;
     avaiableTickets: string;
+}
+
+export interface PlayerTicket {
+    id: string;
+    ticketName: string;
+    tickets: string;
+    price: string;
+    date: string;
+    time: string;
 }
