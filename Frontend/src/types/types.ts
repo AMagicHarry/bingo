@@ -7,7 +7,7 @@ export interface User {
 
 
 export interface Bingo {
-    id: string,
+    _id: string,
     date: string;
     time: string;
     association: string;
@@ -16,6 +16,7 @@ export interface Bingo {
     status: string;
     ticketPrice: string;
 }
+
 
 export interface BingoGroup {
     id: string;
@@ -98,4 +99,20 @@ export interface AuthState {
     registerError:any
     logoutError:any;
     refreshError:any;
+}
+
+
+export interface BingoState {
+    bingos:Bingo[]
+    bingo:Bingo,
+    getBingosStatus: ApiStatus,
+    getBingoStatus: ApiStatus,
+    addBingoStatus: ApiStatus,
+    deleteBingoStatus: ApiStatus,
+    updateBingoStatus: ApiStatus,
+    getBingosError: any,
+    getBingoError: any,
+    addBingoError: any,
+    deleteBingoError: any,
+    updateBingoError: any,
 }

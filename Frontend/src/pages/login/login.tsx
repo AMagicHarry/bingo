@@ -60,7 +60,7 @@ const Login = () => {
             <input type="email" name="email" onChange={handleChange} className="w-full text-[1.2rem] rounded-lg border-solid border-2 border-gray-200 p-1 px-4 mt-8" placeholder="Enter your email"></input>
             <input type="password" name="password" onChange={handleChange} className="w-full text-[1.2rem] rounded-lg border-solid border-2 border-gray-200 p-1 px-4 mt-2" placeholder="Password"></input>
 
-            <button style={{
+            <button type="button" style={{
 
             }} disabled={getLoginStatus === ApiStatus.loading} onClick={handleLogin} className="w-full hover:bg-blue-700 duration-300 text-[1.2rem] mt-4  bg-[#0047FF] text-white rounded-lg p-2">
               {

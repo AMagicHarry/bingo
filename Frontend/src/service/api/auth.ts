@@ -1,7 +1,7 @@
 import { LoginForm,RegisterForm } from '../../types/types';
 import axios from 'axios'
 
-const baseUrl: string = 'http://localhost:4000/api';
+const baseUrl: string = 'https://bingo-backend-gamma.vercel.app/api';
 
 const api = axios.create({
   baseURL: baseUrl,

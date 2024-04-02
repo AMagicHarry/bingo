@@ -109,7 +109,7 @@ const Register = () => {
                   value={email}
                   onChange={handleEmailChange}
                 ></input>
-                <button onClick={handleContinue} className="w-full  mt-4  bg-[#0047FF] text-white rounded-lg p-2">Continue</button>
+                <button type="button" onClick={handleContinue} className="w-full  mt-4  bg-[#0047FF] text-white rounded-lg p-2">Continue</button>
                 <div className="h-[1rem] mb-[1rem]">
                 {emailError && <p className="text-red-500 w-full text-center  mt-[.5rem]">{emailError}</p>}
                 </div>
