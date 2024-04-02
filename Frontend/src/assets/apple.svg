@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Gravit.io -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   style="isolation:isolate"
+   viewBox="0 0 450 450"
+   width="450"
+   height="450"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="applebite.svg">
+  <metadata
+     id="metadata15">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1916"
+     inkscape:window-height="1035"
+     id="namedview13"
+     showgrid="false"
+     inkscape:zoom="0.52444444"
+     inkscape:cx="-104.87288"
+     inkscape:cy="225"
+     inkscape:window-x="4"
+     inkscape:window-y="1"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g4186" />
+  <defs
+     id="defs4">
+    <clipPath
+       id="_clipPath_0Pty4w5cxcJAessb7RT9pbQTCfQctwBI">
+      <rect
+         width="450"
+         height="450"
+         id="rect7" />
+    </clipPath>
+  </defs>
+  <g
+     clip-path="url(#_clipPath_0Pty4w5cxcJAessb7RT9pbQTCfQctwBI)"
+     id="g9">
+    <g
+       id="g4186">
+      <g
+         id="g4190">
+        <path
+           sodipodi:nodetypes="ssscccccccccs"
+           inkscape:connector-curvature="0"
+           style="fill:#000000"
+           d="m 316.21094,108.68359 c -39.566,0 -56.22772,18.83008 -83.63672,18.83008 -28.268,0 -49.761,-18.74414 -83.875,-18.74414 -33.599,0 -69.329673,20.41227 -91.888673,55.19727 -31.914,49.022 -26.47975,141.23772 25.15625,219.88672 18.484003,28.01 43.123503,59.64825 75.312503,59.90625 28.664,0.275 36.7964,-18.26144 75.6914,-18.39844 38.894,-0.327 46.27139,18.6037 74.90039,18.3457 23.26715,-0.14947 43.32287,-18.47076 59.60157,-39.24023 -9.55743,-12.97943 -14.68745,-28.34498 -14.71875,-44.08594 0.004,-21.05764 9.12479,-41.22326 25.29687,-55.93164 -50.70736,-51.89355 -22.72061,-99.37098 22.17383,-151.36914 -22.559,-28.13 -54.19867,-44.39649 -84.01367,-44.39649 z"
+           id="path11" />
+        <path
+           id="path4143"
+           d="m 184.3336,77.235 c -14.375,-18.398 -25.242,-44.466 -21.356,-70.997 23.505,1.616 50.914,16.593 66.974,35.937 52.76395,62.46487 -4.82011,85.73157 -45.618,35.06 z"
+           inkscape:connector-curvature="0"
+           style="fill:#000000"
+           sodipodi:nodetypes="cccc" />
+      </g>
+    </g>
+  </g>
+</svg>
