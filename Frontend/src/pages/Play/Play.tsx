@@ -17,6 +17,8 @@ const Play = () => {
       setTicketPosition(ticketposition - 1);
   }
 
+  
+
   return (
     <div className="w-full min-h-full">
       <div className="container flex items-start justify-center p-[1rem]">

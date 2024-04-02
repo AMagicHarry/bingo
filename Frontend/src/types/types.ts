@@ -1,3 +1,11 @@
+export interface User {
+    _id:string,
+    name:string,
+    email:string,
+    accesstoken:string,
+}
+
+
 export interface Bingo {
     id: string,
     date: string;
@@ -59,4 +67,35 @@ export interface PlayerTicket {
     price: string;
     date: string;
     time: string;
+}
+
+export interface LoginForm {
+    email:string,
+    password:string
+}
+
+export interface RegisterForm {
+    name:string,
+    email:string,
+    password:string,
+    confirmPassword:string,
+}
+
+export enum ApiStatus {
+    "loading",
+    "ideal",
+    "success",
+    "error"
+}
+
+export interface AuthState {
+    user:User,
+    getRegisterStatus: ApiStatus,
+    getLoginStatus: ApiStatus,
+    getLogoutStatus: ApiStatus,
+    getRefreshStatus: ApiStatus
+    loginError:any,
+    registerError:any
+    logoutError:any;
+    refreshError:any;
 }

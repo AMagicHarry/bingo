@@ -21,14 +21,25 @@ import MyTicket from './pages/MyTicket/MyTicket';
 import PlayTicket from './pages/PlayTicket/PlayTicket';
 import PlayerLogin from './pages/PlayerLogin/PlayerLogin';
 import Tickets from './pages/Tickets/Tickets';
-
 import bgImage from './assets/background_ball.png'
 import ball from './assets/ball.png'
 import background from "./assets/background.png"
-
+import { useAppDispatch } from './app/hooks';
+import { refresh } from './app/store/auth/thunk';
+import { PrivateRoute } from './Routes/PrivateRoute/PrivateRoute';
+import { PublicRoute } from './Routes/PublicRoute/PublicRoute';
 import './App.css';
+import { useEffect } from 'react';
+
 
 const App = () => {
+  const dispatch = useAppDispatch()
+  
+
+  useEffect(() => {
+    dispatch(refresh())
+  }, [])
+
   const Layout1 = () => {
     const location = useLocation();
 
@@ -51,6 +62,8 @@ const App = () => {
     );
   };
 
+  
+
   const Layout2 = () => {
     return (
       <div className='overflow-y-auto h-full'>
@@ -66,8 +79,8 @@ const App = () => {
   return (
     <div className='w-full h-screen overflow-hidden font-serif'>
       <Routes>
-        <Route path='/' element={<Layout1 />}>
-          <Route index element={<Home />} />
+        <Route path='/' element={<PrivateRoute element={<Layout1 />} />}>
+          <Route index element={<Home />}/>
           <Route path="selected" element={<Selected />} />
           <Route path="all-bingos" element={<AllBingos />} />
           <Route path="buyticket" element={<BuyTicket />} />
@@ -76,13 +89,14 @@ const App = () => {
           <Route path="play" element={<Play />} />
           <Route path="*" element={<NotFound />} />
           <Route path="association" element={<Association />} />
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
           <Route path="myticket" element={<MyTicket />} />
-          <Route path="playerlogin" element={<PlayerLogin />} />
-
         </Route>
-        <Route element={<Layout2 />}>
+
+        <Route path="/register" element={<PublicRoute  element={<Register />} />} />
+        <Route path="/playerlogin" element={<PublicRoute  element={<PlayerLogin />} />} />
+        <Route path="/login" element={<PublicRoute element={<Login />} />} />
+
+        <Route element={<PrivateRoute  element={<Layout2 />} />} >
           <Route path='bingohome' element={<BingoHome />}></Route>
           <Route path='bingopayment' element={<BingoPayment />}></Route>
           <Route path='playerrecord' element={<PlayerRecord />}></Route>
