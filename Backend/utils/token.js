@@ -21,11 +21,12 @@ const sendAccessToken = (res,accesstoken,user) =>{
 
 const sendRefreshToken = (res, refreshtoken) => {
    res.cookie('ref', refreshtoken, {
-     httpOnly: true,
-     maxAge: 2 * 24 * 60 * 60 * 1000, // 2 days
-   //   sameSite: 'None',
-     secure: process.env.NODE_ENV === 'production', 
-   });
+      httpOnly: true,
+      maxAge: 2 * 24 * 60 * 60 * 1000, 
+      secure: true, 
+      sameSite: 'None', 
+    });
+    
  };
 
 

@@ -1,11 +1,17 @@
-const router = require('express').Router();
-const {payWithStripe} = require('../controllers/payment.js');
-const { protect } = require('../middleware/protect.js');
+// const router = require('express').Router();
+// const {payWithStripe,getPayments,addPayment,deletePayment,updatePayment} = require('../controllers/payment.js');
+// const { protect } = require('../middleware/protect.js');
 
+// router.use(protect);
 
-router.use(protect);
+// router.route('/')
+// .get(getPayments) 
+// .post(addPayment);
 
-router.route('/stripe').get(payWithStripe)
+// router.route('/:id')
+// .delete(deletePayment) 
+// .put(updatePayment);
 
+// router.route('/stripe').get(payWithStripe)
 
-module.exports = router;
+// module.exports = router;
