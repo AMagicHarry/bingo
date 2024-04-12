@@ -1,7 +1,11 @@
 const router = require('express').Router()
 const cookieParser = require('cookie-parser')
-const {login,register,logout,refreshToken} = require('../controllers/auth')
+const {login,register,logout,refreshToken,googleAuth,facebookAuth} = require('../controllers/auth')
 router.use(cookieParser())
+
+router.route('/google-auth').post(googleAuth)
+
+router.route('/facebook-auth').post(facebookAuth)
 
 router.route('/register').post(register)
 

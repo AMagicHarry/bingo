@@ -1,25 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchBingo,addBingo,deleteBingo,updateBingo,getBingo } from "./thunk";
+import { fetchBingos,addBingo,deleteBingo,updateBingo,getBingo,fetchAssociationBingos } from "./thunk";
 import { BingoState, ApiStatus } from "../../../types/types";
 
 const initialState: BingoState = {
     bingos: [],
+    associationBingos:[],
     bingo:{
         _id:"",
-        date: "",
+        gameDay: "",
         time: "",
+        name:"",
         association: "",
-        firstPrice: "",
+        prices: "",
+        startDate:"",
+        endDate:"",
         donation: "",
         status: "",
         ticketPrice: "",
+        createdAt:"",
     },
 
     getBingosStatus: ApiStatus.ideal,
+    getAssociationBingoStatus:ApiStatus.ideal,
     getBingoStatus: ApiStatus.ideal,
     addBingoStatus: ApiStatus.ideal,
     deleteBingoStatus: ApiStatus.ideal,
     updateBingoStatus: ApiStatus.ideal,
+    getAssociationBingoError:ApiStatus.ideal,
     getBingosError: '',
     getBingoError: '',
     addBingoError: '',
@@ -37,28 +44,48 @@ const bingoSlice = createSlice({
             state.addBingoStatus = ApiStatus.ideal;
             state.deleteBingoStatus = ApiStatus.ideal;
             state.updateBingoStatus = ApiStatus.ideal;
-
-            
+            state.getAssociationBingoStatus = ApiStatus.ideal;
             state.getBingosError = '';
+            state.getAssociationBingoError = '',
             state.getBingoError = '';
             state.addBingoError = '';
             state.deleteBingoError = '';
             state.updateBingoError = '';
         },
+
+        resetBingoEror:(state)=>{
+           state.getBingoError = "",
+           state.addBingoError = "",
+           state.deleteBingoError ="",
+           state.updateBingoError = ""
+        }
     },
     extraReducers: (builder) => {
         builder
             // Fetch bingos
-            .addCase(fetchBingo.pending, (state) => {
+            .addCase(fetchBingos.pending, (state) => {
                 state.getBingosStatus = ApiStatus.loading;
             })
-            .addCase(fetchBingo.fulfilled, (state, action) => {
+            .addCase(fetchBingos.fulfilled, (state, action) => {
                 state.bingos = action.payload;
                 state.getBingosStatus = ApiStatus.success;
             })
-            .addCase(fetchBingo.rejected, (state, action) => {
+            .addCase(fetchBingos.rejected, (state, action) => {
                 state.getBingosStatus = ApiStatus.error;
                 state.getBingosError = action.payload;
+            })
+
+            // Fetch Association bingos
+            .addCase(fetchAssociationBingos.pending, (state) => {
+                state.getAssociationBingoStatus = ApiStatus.loading;
+            })
+            .addCase(fetchAssociationBingos.fulfilled, (state, action) => {
+                state.associationBingos = action.payload;
+                state.getAssociationBingoStatus = ApiStatus.success;
+            })
+            .addCase(fetchAssociationBingos.rejected, (state, action) => {
+                state.getAssociationBingoStatus = ApiStatus.error;
+                state.getAssociationBingoError = action.payload;
             })
 
             // Get single bingo
@@ -79,7 +106,7 @@ const bingoSlice = createSlice({
                 state.addBingoStatus = ApiStatus.loading;
             })
             .addCase(addBingo.fulfilled, (state, action) => {
-                state.bingos.push(action.payload); 
+                state.associationBingos.push(action.payload); 
                 state.addBingoStatus = ApiStatus.success;
             })
             .addCase(addBingo.rejected, (state, action) => {
@@ -92,7 +119,7 @@ const bingoSlice = createSlice({
                 state.deleteBingoStatus = ApiStatus.loading;
             })
             .addCase(deleteBingo.fulfilled, (state, action) => {
-                state.bingos = state.bingos.filter(bingo => bingo._id !== action.meta.arg);
+                state.associationBingos = state.associationBingos.filter(bingo => bingo._id !== action.meta.arg.bingoId);
                 state.deleteBingoStatus = ApiStatus.success;
             })
             .addCase(deleteBingo.rejected, (state, action) => {
@@ -105,9 +132,9 @@ const bingoSlice = createSlice({
                 state.updateBingoStatus = ApiStatus.loading;
             })
             .addCase(updateBingo.fulfilled, (state, action) => {
-                const index = state.bingos.findIndex(bingo => bingo._id === action.meta.arg.bingoId);
+                const index = state.associationBingos.findIndex(bingo => bingo._id === action.meta.arg.bingoId);
                 if (index !== -1) {
-                    state.bingos[index] = { ...state.bingos[index], ...action.meta.arg.data };
+                    state.bingos[index] = { ...state.bingos[index], ...action.meta.arg.updatedBingo };
                 }
                 state.updateBingoStatus = ApiStatus.success;
             })
@@ -118,5 +145,5 @@ const bingoSlice = createSlice({
     }
 });
 
-export const { resetBingoStatus } = bingoSlice.actions;
+export const { resetBingoStatus,resetBingoEror } = bingoSlice.actions;
 export default bingoSlice.reducer;

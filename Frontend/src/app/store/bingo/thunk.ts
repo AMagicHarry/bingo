@@ -1,13 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchBingosApi,getBingoApi,deleteBingoApi,updateBingoApi,addBingoApi } from "../../../service/api/bingo";
+import { fetchBingosApi,getBingoApi,deleteBingoApi,updateBingoApi,addBingoApi,fetchAssociationBingosApi } from "../../../service/api/bingo";
 import { Bingo } from "../../../types/types";
 
 
-export const fetchBingo = createAsyncThunk(
-    'bingo/fetch',
-    async (_, { rejectWithValue }) => {
+export const fetchBingos = createAsyncThunk(
+    'bingo/fetchBingos',
+    async (token:string, { rejectWithValue }) => {
         try {
-            const response = await fetchBingosApi();
+            const response = await fetchBingosApi(token);
+           
+            return response.data;
+        } catch (error:any) {
+            return rejectWithValue(error?.response?.data);
+        }
+    }
+);
+
+export const fetchAssociationBingos = createAsyncThunk(
+    'bingo/fetchAssociationBingo',
+    async (token:string, { rejectWithValue }) => {
+        try {
+            const response = await fetchAssociationBingosApi(token);
+            console.log(response.data)
             return response.data;
         } catch (error:any) {
             return rejectWithValue(error?.response?.data);
@@ -17,10 +31,10 @@ export const fetchBingo = createAsyncThunk(
 
 
 export const getBingo = createAsyncThunk(
-    'bingo/fetch',
-    async (bingoId:string, { rejectWithValue }) => {
+    'bingo/fetchBingo',
+    async ({bingoId,token}:{bingoId:string,token:string}, { rejectWithValue }) => {
         try {
-            const response = await getBingoApi(bingoId);
+            const response = await getBingoApi({bingoId,token});
             return response.data;
         } catch (error:any) {
             return rejectWithValue(error?.response?.data);
@@ -30,9 +44,10 @@ export const getBingo = createAsyncThunk(
 
 export const addBingo = createAsyncThunk(
     'bingo/add',
-    async (data: Partial<Bingo>, { rejectWithValue }) => {
+    async ({bingo,token}:{bingo: Partial<Bingo>,token:string}, { rejectWithValue }) => {
+           console.log(bingo,token)
         try {
-            const response = await addBingoApi(data);
+            const response = await addBingoApi({bingo,token});
             return response.data;
         } catch (error:any) {
             return rejectWithValue(error?.response?.data);
@@ -42,9 +57,9 @@ export const addBingo = createAsyncThunk(
 
 export const deleteBingo = createAsyncThunk(
     'bingo/delete',
-    async (bingoId: string, { rejectWithValue }) => {
+    async ({bingoId,token}:{bingoId:string,token:string}, { rejectWithValue }) => {
         try {
-            await deleteBingoApi(bingoId);
+            await deleteBingoApi({bingoId,token});
         } catch (error:any) {
             return rejectWithValue(error?.response?.data);
         }
@@ -53,9 +68,9 @@ export const deleteBingo = createAsyncThunk(
 
 export const updateBingo = createAsyncThunk(
     'bingo/update',
-    async ({ bingoId, data }: { bingoId: string, data: Partial<Bingo> }, { rejectWithValue }) => {
+    async ({ bingoId, updatedBingo,token }: { bingoId: string, updatedBingo: Partial<Bingo>,token:string }, { rejectWithValue }) => {
         try {
-            await updateBingoApi(bingoId, data);
+            await updateBingoApi({bingoId, updatedBingo,token});
         } catch (error:any) {
             return rejectWithValue(error?.response?.data);
         }

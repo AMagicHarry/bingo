@@ -13,7 +13,8 @@ const createRefreshToken = (id) =>{
 }
 
 const sendAccessToken = (res,accesstoken,user) =>{
-    res.status(200).json({
+   console.log('slslsl')
+    return res.status(200).json({
        accesstoken,
        ...user
     })

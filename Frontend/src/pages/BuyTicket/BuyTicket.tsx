@@ -11,6 +11,7 @@ const Play = () => {
     setTicketNumber((prev) => prev + 1);
   };
 
+  
   const handleDecrement = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (ticketNumber === 1) {

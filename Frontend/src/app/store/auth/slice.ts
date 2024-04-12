@@ -1,23 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AuthState,ApiStatus } from "../../../types/types";
-import { login, logout, refresh, register } from "./thunk";
-import Cookies from 'js-cookie'
+import { login, logout, refresh, register,googleRegister,googleLogin,facebookAuth } from "./thunk";
 
+const role:'association'|'player'|'admin' = 'association'
 const initialState: AuthState = {
     user: {
         _id: "",
         name: "",
         email: "" ,
-        accesstoken:""
+        accesstoken:"",
+        role
     },
     getLoginStatus: ApiStatus.ideal,
     getRegisterStatus: ApiStatus.ideal,
     getLogoutStatus: ApiStatus.ideal,
     getRefreshStatus: ApiStatus.ideal,
+    getGoogleRegisterAuthStatus: ApiStatus.ideal,
+    getGoogleLoginAuthStatus: ApiStatus.ideal,
+    getFacebookAuthStatus:ApiStatus.ideal,
     loginError: '',
     registerError: '',
     logoutError: '',
     refreshError: '',
+    googleRegisterAuthError:"",
+    googleLoginAuthError:"",
+    facebookAuthError:""
 };
 
 
@@ -33,9 +40,11 @@ const authSlice = createSlice({
         },
         resetLoginError: (state) => {
             state.loginError = ''
+            state.googleLoginAuthError = ''
         },
         resetRegisterError: (state) => {
             state.registerError = ''
+            state.googleRegisterAuthError = ''
         },
     },
     extraReducers: (builder) => {
@@ -45,14 +54,6 @@ const authSlice = createSlice({
             })
             .addCase(register.fulfilled, (state, action) => {
                 state.user = action.payload;
-                if(action.payload.accesstoken){
-                    Cookies.set('bingo-tok', action.payload.accesstoken, {
-                        expires: 30 / (24 * 60), // 30 minutes
-                        secure: location.protocol === "https:",
-                        sameSite: 'Strict',
-                        httpOnly: false
-                      });
-                }
                 state.getRegisterStatus = ApiStatus.success;
             })
             .addCase(register.rejected, (state,action) => {
@@ -61,19 +62,12 @@ const authSlice = createSlice({
             })
 
 
+
             .addCase(login.pending, (state) => {
                 state.getLoginStatus = ApiStatus.loading;
             })
             .addCase(login.fulfilled, (state, action) => {
                 state.user = action.payload; 
-                if(action.payload.accesstoken){
-                    Cookies.set('bingo-tok', action.payload.accesstoken, {
-                        expires: 30 / (24 * 60), // 30 minutes
-                        secure: location.protocol === "https:",
-                        sameSite: 'Strict',
-                        httpOnly: false
-                      });
-                }
                 state.getLoginStatus = ApiStatus.success;
             })
             .addCase(login.rejected, (state,action) => {
@@ -86,8 +80,7 @@ const authSlice = createSlice({
                 state.getLogoutStatus = ApiStatus.loading;
             })
             .addCase(logout.fulfilled, (state) => {
-                state.user = { _id: "", name: "", email: "",accesstoken:"" }; 
-                Cookies.remove('bingo-tok');
+                state.user = { _id: "", name: "", email: "",accesstoken:"",role:"association" }; 
                 state.getLogoutStatus = ApiStatus.success;
             })
             .addCase(logout.rejected, (state,action) => {
@@ -101,19 +94,47 @@ const authSlice = createSlice({
             })
             .addCase(refresh.fulfilled, (state, action) => {
                 state.user = action.payload; 
-                if(action.payload.accesstoken){
-                    Cookies.set('bingo-tok', action.payload.accesstoken, {
-                        expires: 30 / (24 * 60),
-                        secure: location.protocol === "https:",
-                        sameSite: 'Strict',
-                        httpOnly: false
-                      });
-                }
                 state.getRefreshStatus = ApiStatus.success;
             })
             .addCase(refresh.rejected, (state,action) => {
                 state.getRefreshStatus = ApiStatus.error;
                 state.refreshError = action.payload
+            })
+
+            .addCase(googleRegister.pending, (state) => {
+                state.getGoogleRegisterAuthStatus = ApiStatus.loading;
+            })
+            .addCase(googleRegister.fulfilled, (state, action) => {
+                state.user = action.payload; 
+                state.getGoogleRegisterAuthStatus = ApiStatus.success;
+            })
+            .addCase(googleRegister.rejected, (state,action) => {
+                state.getGoogleRegisterAuthStatus = ApiStatus.error;
+                state.googleRegisterAuthError = action.payload
+            })
+
+            .addCase(googleLogin.pending, (state) => {
+                state.getGoogleLoginAuthStatus = ApiStatus.loading;
+            })
+            .addCase(googleLogin.fulfilled, (state, action) => {
+                state.user = action.payload; 
+                state.getGoogleLoginAuthStatus = ApiStatus.success;
+            })
+            .addCase(googleLogin.rejected, (state,action) => {
+                state.getGoogleLoginAuthStatus = ApiStatus.error;
+                state.googleLoginAuthError = action.payload
+            })
+
+            .addCase(facebookAuth.pending, (state) => {
+                state.getFacebookAuthStatus = ApiStatus.loading;
+            })
+            .addCase(facebookAuth.fulfilled, (state, action) => {
+                state.user = action.payload; 
+                state.getFacebookAuthStatus = ApiStatus.success;
+            })
+            .addCase(facebookAuth.rejected, (state,action) => {
+                state.getFacebookAuthStatus = ApiStatus.error;
+                state.facebookAuthError = action.payload
             });
     }
 });

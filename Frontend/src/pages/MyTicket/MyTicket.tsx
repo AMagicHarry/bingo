@@ -2,8 +2,6 @@ import { Link } from "react-router-dom"
 import ticket1 from "../../assets/tickets/Property 1=Default.png"
 import ticket2 from "../../assets/tickets/Property 1=Variant2.png"
 import ticket3 from "../../assets/tickets/Property 1=Variant3.png"
-import ticket4 from "../../assets/tickets/Property 1=Variant4.png"
-import ticket5 from "../../assets/tickets/Property 1=Variant5.png"
 import ticket6 from "../../assets/tickets/Property 1=blank.png"
 
 const MyTicket = () => {
