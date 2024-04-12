@@ -5,6 +5,7 @@ const { validatePassword } = require('../utils/functions')
 const axios = require('axios')
 
 
+
 // Register user
 const register = async (req, res, next) => {
     const { name, email, password, confirmPassword } = req.body;
@@ -58,6 +59,10 @@ const login = async (req, res, next) => {
 
         if (!user) return next({ message: 'Invalid credentials' });
 
+        if (user.signupMethod === 'google') {
+            return next({ status: 400, message: 'Please log in using Google' });
+        }
+
         const match = await user.isMatch(password);
 
 
@@ -76,6 +81,8 @@ const login = async (req, res, next) => {
     }
 };
 
+
+
 // Logout user
 const logout = (req, res, next) => {
     res.clearCookie('ref', { httpOnly: true, secure: true, sameSite: 'None', path: '/' });
@@ -89,7 +96,6 @@ const logout = (req, res, next) => {
 // Refresh token
 const refreshToken = async (req, res, next) => {
     const token = req.cookies.ref;
-    // console.log(token)
 
     if (!token) {
         return res.status(200).json({
@@ -110,7 +116,6 @@ const refreshToken = async (req, res, next) => {
             accesstoken: '',
         });
     }
-    console.log('sksksk')
 
     const accessToken = createAccessToken(user.id);
     const refreshToken = createRefreshToken(user.id);
@@ -123,15 +128,15 @@ const refreshToken = async (req, res, next) => {
 
     sendRefreshToken(res, refreshToken);
     const { password, refreshtoken: reftoken, isAdmin, __v, ...others } = user._doc;
-    console.log('weak')
     sendAccessToken(res, accessToken, others);
 };
 
 
-const googleAuth = async (req, res, next) => {
+
+const googleRegister = async (req, res, next) => {
     const { code } = req.body;
 
-    if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET || !process.env.GOOGLE_REDIRECT_URI) {
+    if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET || !process.env.GOOGLE_REDIRECT_URI || !code) {
         return next({ message: 'Server misconfiguration' });
     }
 
@@ -158,7 +163,7 @@ const googleAuth = async (req, res, next) => {
         let user = await User.findOne({ email });
         
         if (!user) {
-        user = new User({ name, email }); 
+        user = new User({ name, email, signupMethod:'google' }); 
         await user.save();
         }
 
@@ -174,9 +179,63 @@ const googleAuth = async (req, res, next) => {
         console.log(userRefreshToken)
         sendAccessToken(res, accessToken, others);
     } catch (error) {
+        console.log(error)
         next({ message: 'Internal Server Error' });
     }
 };
+
+ 
+
+const googleLogin = async (req, res, next) => {
+    const { code } = req.body;
+
+    if (!process.env.GOOGLE_CLIENT_ID || !process.env.GOOGLE_CLIENT_SECRET || !process.env.GOOGLE_REDIRECT_URI || !code) {
+        return next({ message: 'Server misconfiguration' });
+    }
+    
+    try {
+        const tokenResponse = await axios.post('https://oauth2.googleapis.com/token', {
+            code,
+            client_id: process.env.GOOGLE_CLIENT_ID,
+            client_secret: process.env.GOOGLE_CLIENT_SECRET,
+            redirect_uri: process.env.GOOGLE_REDIRECT_URI,
+            grant_type: 'authorization_code',
+        });
+
+        const { access_token } = tokenResponse.data;
+        const userInfoResponse = await axios.get('https://www.googleapis.com/oauth2/v2/userinfo', {
+            headers: { Authorization: `Bearer ${access_token}` },
+        });
+
+        const { name, email } = userInfoResponse.data;
+
+        if (!name || !email) {
+            return next({ message: 'Failed to retrieve essential user information' });
+        }
+
+        let user = await User.findOne({ email });
+        
+        if (!user) return next({ message: 'Please register to log in' });
+
+
+        const accessToken = createAccessToken(user.id);
+        const refreshToken = createRefreshToken(user.id);
+
+        await user.updateOne({ refreshtoken: refreshToken });
+    
+
+        sendRefreshToken(res, refreshToken);
+        const { __v, refreshToken: userRefreshToken, ...others } = user._doc;
+        console.log(userRefreshToken)
+        sendAccessToken(res, accessToken, others);
+    } catch (error) {
+        console.log(error)
+        next({ message: 'Internal Server Error' });
+    }
+};
+
+
+
 
 
 const facebookAuth = async (req, res, next) => {
@@ -216,6 +275,7 @@ module.exports = {
     register,
     logout,
     refreshToken,
-    googleAuth,
+    googleRegister,
+    googleLogin,
     facebookAuth
 };

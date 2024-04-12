@@ -3,12 +3,17 @@ const mongoose = require('mongoose');
 const ticketSchema = new mongoose.Schema({
     ownerName: {
         type: String,
-        required: true
+        required: false
     },
     ownerEmail: {
         type: String,
-        required: true,
+        required: false,
         match: [/.+\@.+\..+/, 'Please fill a valid email address']
+    },
+    association: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref:'User',
+        required:true,
     },
     bingo: {
         type: mongoose.Schema.Types.ObjectId,
@@ -16,12 +21,27 @@ const ticketSchema = new mongoose.Schema({
         required: true
     },
     ticketNumber: {
-        type: Number,
+        type: String,
         required: true
-    }
+    },
+    transactionNumber:{
+        type:String,
+        required:false
+    },
+    ticketPrice:{
+        type:String,
+        required:true
+    },
+    grid:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Grid',
+        required:false,
+    },
+    sold:{
+        type:Boolean,
+        required:false
+    },
 },
 { timestamps: true });
 
-const Ticket = mongoose.model('Ticket', ticketSchema);
-
-module.exports = Ticket;
+module.exports = mongoose.models.Ticket || mongoose.model('Ticket', ticketSchema);

@@ -16,6 +16,12 @@ const UserSchema = new Schema({
         type: String,
         required: false,
     },
+    signupMethod: {
+        type: String,
+        required: true,
+        enum: ['traditional', 'google', 'facebook'], 
+        default: 'traditional',
+    },
     role: {
         type: String,
         required: true,

@@ -10,10 +10,11 @@ const app = express();
 
 const port = process.env.PORT || 4000;
 
-const allowedOrigins = ['https://decktask.onrender.com', `http://localhost:5173`];
+const allowedOrigins = ['https://bingo-samp-2.vercel.app', `http://localhost:5173`];
 
 const corsOptions = {
   origin: function (origin, callback) {
+       console.log(origin)
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
@@ -34,7 +35,8 @@ const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
 const bingoRoutes = require('./routes/bingo')
 const ticketRoutes = require('./routes/ticket')
-const paymentRoutes = require('./routes/payment')
+// const paymentRoutes = require('./routes/payment')
+const winnerRoutes = require('./routes/winner')
 
 
 
@@ -42,7 +44,8 @@ app.use('/api/user', userRoutes);
 app.use('/api/bingo', bingoRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/ticket', ticketRoutes);
-app.use('/api/payment', paymentRoutes);
+// app.use('/api/payment', paymentRoutes);
+app.use('/api/winner',winnerRoutes)
 
 
 
