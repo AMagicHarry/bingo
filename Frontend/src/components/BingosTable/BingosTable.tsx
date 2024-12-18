@@ -5,7 +5,6 @@ import './BingosTables.css'
 
 interface BingosTableProps extends PropsWithChildren {
   bingos: Bingo[]
-  setBingos: React.Dispatch<React.SetStateAction<Bingo[]>>;
 }
 
 const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
@@ -39,7 +38,7 @@ const BingosTable: React.FC<BingosTableProps> = ({ bingos, children }) => {
         </thead>
         <tbody className="overflow-x-auto" >
           {bingos.map((bingo: Bingo) => (
-            <BingoRow key={bingo.id} bingo={bingo} />
+            <BingoRow key={bingo._id} bingo={bingo} />
           ))}
         </tbody>
       </table>

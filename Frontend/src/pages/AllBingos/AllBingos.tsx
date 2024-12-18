@@ -1,17 +1,26 @@
 import BingosTable from '../../components/BingosTable/BingosTable'
 import { BiSearchAlt } from 'react-icons/bi'
 import { BiFilterAlt } from 'react-icons/bi'
-import { useState } from 'react'
-import { bingos as bingosDummy } from '../../data/data'
-import { Bingo } from '../../types/types'
+import { useEffect, } from 'react'
+import { useAppSelector,useAppDispatch } from '../../app/hooks'
+import { fetchBingos } from '../../app/store/bingo/thunk'
+import { RootState } from '../../app/store/store'
+
 
 const AllBingos = () => {
-    const [bingos, setBingos] = useState<Bingo[]>([...bingosDummy])
+    const dispatch = useAppDispatch()
+    const {bingos} = useAppSelector((state:RootState)=>state.bingo)
+    const {user} = useAppSelector((state:RootState)=>state.auth)
+
+    useEffect(()=>{
+      dispatch(fetchBingos(user.accesstoken))
+    },[])
+
 
     return (
         <div className='w-full min-h-full '>
             <div className="container px-[8rem] py-[1rem]">
-                <BingosTable bingos={bingos} setBingos={setBingos} >
+                <BingosTable bingos={bingos}  >
                     <div className=" flex text-base justify-between gap-[1rem] border-b border-gray-400 pb-[1rem] items-center ">
                         <h1 className='text-[2rem] mt-[2rem]'>Bingo's</h1>
                         <div className='flex items-center gap-[1rem]'>

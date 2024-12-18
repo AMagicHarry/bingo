@@ -3,7 +3,6 @@ import ballTable from "../../assets/ball/bingo full grid.png"
 import ball1 from "../../assets/ball/Frame 489.png"
 import ball2 from "../../assets/ball/Frame 490.png"
 import ball3 from "../../assets/ball/Frame 492.png"
-import ball4 from "../../assets/ball/Frame 493.png"
 
 const MyTicket = () => {
 

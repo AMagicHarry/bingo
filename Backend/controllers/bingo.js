@@ -1,8 +1,9 @@
 const BingoModel = require('../models/Bingo')
+const TicketModel = require('../models/Ticket')
 
 const getBingos = async (req, res, next) => {
   try {
-    const bingos = await BingoModel.find({ organizer: req.user });
+    const bingos = await BingoModel.find();
     res.status(200).json(bingos);
   } catch (error) {
     return next({ message: 'Internal Server Error' });
@@ -10,19 +11,75 @@ const getBingos = async (req, res, next) => {
 };
 
 
-const addBingo = async (req, res, next) => {
-    const{association,firstPrice ,donation ,status,ticketPrice} = req.body
-    if(!association || !firstPrice || !donation || !status || !ticketPrice){
-        return next({ message: 'Name is required' });
-    }
+const getAssociationBingos = async (req, res, next) => {
   try {
-    const bingo = new BingoModel(req.body);
-    const savedBingo = await bingo.save();
-    res.status(200).json(savedBingo);
+    const bingos = await BingoModel.find()
+      .populate({
+        path: 'association',
+        match: { _id: req.user._id }
+      })
+      .exec();
+    res.status(200).json(bingos.filter(bingo => bingo.association !== null));
   } catch (error) {
     return next({ message: 'Internal Server Error' });
   }
+}
+
+
+const addBingo = async (req, res, next) => {
+  const { name, prices, startDate, endDate, gameDay, time, numberOfTickets, ticketPrice } = req.body;
+
+  const totalTickets = parseInt(numberOfTickets, 10);
+
+  if (isNaN(totalTickets) || totalTickets <= 0) {
+    return next({ message: 'Invalid number of tickets' });
+  }
+
+  if (!prices || !ticketPrice || !startDate || !endDate || !gameDay || !time || !name) {
+    return next({ message: 'All fields are required' });
+  }
+
+  try {
+    const bingo = new BingoModel({
+      association: req.user._id,
+      prices,
+      startDate,
+      endDate,
+      gameDay,
+      time,
+      name,
+      ticketPrice,
+    });
+
+    const savedBingo = await bingo.save();
+
+    const creationTimestamp = new Date();
+
+    const ticketPromises = Array.from({ length: totalTickets }, (_, index) => {
+      return new TicketModel({
+        ticketNumber: index + 1,
+        association: req.user._id,
+        bingo: savedBingo._id,
+        ticketPrice: ticketPrice,
+        createdAt: creationTimestamp
+      }).save();
+    });
+
+    const tickets = await Promise.all(ticketPromises);
+
+    const ticketIds = tickets.map(ticket => ticket._id);
+
+    savedBingo.tickets = ticketIds;
+    await savedBingo.save();
+
+    res.status(200).json(savedBingo);
+  } catch (error) {
+    console.error(error);
+    return next({ message: 'Internal Server Error', error });
+  }
 };
+
+
 
 const deleteBingo = async (req, res, next) => {
   try {
@@ -47,6 +104,7 @@ const updateBingo = async (req, res, next) => {
 
 module.exports = {
   getBingos,
+  getAssociationBingos,
   addBingo,
   deleteBingo,
   updateBingo,

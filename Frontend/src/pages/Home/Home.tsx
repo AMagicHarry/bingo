@@ -1,30 +1,28 @@
-import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
-
 import BingosTable from '../../components/BingosTable/BingosTable';
-import { bingos as bingosDummy, bingoGroups as bingoGroupsDummy } from '../../data/data';
-import { Bingo } from '../../types/types';
-import { BingoGroup } from '../../types/types';
-
-import BingoGroupImage from '../../assets/bingo.svg';
 import BiggestPrice from '../../assets/price.svg'
 import SolarStar from '../../assets/solar_star-bold-duotone.svg'
 import Rectangle7 from '../../assets/latest_winner_frame.svg'
 import CounterFrame from '../../assets/counterframe.svg'
-
+import { useAppSelector } from '../../app/hooks';
+import { RootState } from '../../app/store/store';
+import { useAppDispatch } from '../../app/hooks';
+import { useEffect } from 'react';
+import { fetchBingos } from '../../app/store/bingo/thunk';
 import './Home.css'
 
 const Home = () => {
   const navigate = useNavigate();
-
-  const [bingos, setBingos] = useState<Bingo[]>([...bingosDummy.slice(0, 5)]);
-  const [bingoGroups, _] = useState<BingoGroup[]>([...bingoGroupsDummy]);
-
   const totals: any = [
     { id: 1, title: 'Game Played', value: '1.3M' },
     { id: 2, title: 'Total winnings', value: '900k' },
     { id: 3, title: 'Active players', value: '300k' },
   ]
+
+  const {bingos} = useAppSelector((state:RootState)=>state.bingo)
+  const {user} = useAppSelector((state:RootState)=>state.auth)
+
+  const dispatch = useAppDispatch()
 
   const winners: string[] = [
     'Julie',
@@ -38,6 +36,11 @@ const Home = () => {
     'Courtney',
     'Bessie'
   ]
+
+  useEffect(()=>{
+    dispatch(fetchBingos(user.accesstoken))
+  },[])
+
 
   return (
     <div className='w-full'>
@@ -123,18 +126,7 @@ const Home = () => {
 
       <div className="w-full p-[1rem]">
         <div className="container px-[2rem] sm:px-[2rem] md:px-[8rem]">
-          <h1 className='text-[2rem] mt-[1rem]'>Popular Bingo's</h1>
-          <div className="flex mt-[1rem] gap-[1rem] items-center justify-center flex-wrap">
-            {bingoGroups.map((bingoGroup: BingoGroup) => (
-              <div key={bingoGroup.id} className='relative'>
-                <img src={BingoGroupImage} alt="" className='relative' />
-                <span className='absolute bg-[#85E8C3] left-[50%] px-[.5rem] py-[.2rem] rounded-md -translate-x-1/2 bottom-[2rem]'>
-                  {bingoGroup.category}
-                </span>
-              </div>
-            ))}
-          </div>
-          <BingosTable setBingos={setBingos} bingos={bingos}>
+          <BingosTable  bingos={bingos}>
             <div className="flex border-b border-gray-400 pb-[1rem] items-center justify-between">
               <h1 className='text-[1.3rem] sm:text-[2rem]'>Trending Bingo's</h1>
               <Link to='/all-bingos' className='text-[15px] sm:text-[25px] hover:underline duration-300 cursor-pointer'>

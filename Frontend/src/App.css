@@ -3,3 +3,19 @@
   max-width: 1120px;
   margin: 0 auto;
 }
+
+@keyframes rotateAndScale {
+  0% {
+      transform: rotate(0deg) scale(1);
+  }
+  50% {
+      transform: rotate(180deg) scale(1.5);
+  }
+  100% {
+      transform: rotate(360deg) scale(1);
+  }
+}
+
+.rotateAndScale {
+  animation: rotateAndScale 3s linear infinite;
+}

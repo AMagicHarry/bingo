@@ -6,6 +6,9 @@ import { RootState } from '../../app/store/store'
 import { logout } from '../../app/store/auth/thunk'
 import { ClipLoader } from 'react-spinners'
 import { ApiStatus } from '../../types/types'
+import { googleLogout } from '@react-oauth/google';
+
+
 
 
 const NavBar = () => {
@@ -20,6 +23,7 @@ const NavBar = () => {
         if (logout.fulfilled.match(resultAction)) {
             navigate('/login');
         }
+        googleLogout()
     }
 
     return (
